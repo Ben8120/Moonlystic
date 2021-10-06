@@ -8,6 +8,8 @@
         <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>        
         <h5>User Name:</h5>
         <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>        
+        <h5>Date Of Birth:</h5>
+        <asp:TextBox ID="txtDate" runat="server"></asp:TextBox>        
         <h5>E-mail:</h5>
         <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>        
         <h5>Password:</h5>
