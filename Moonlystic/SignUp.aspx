@@ -2,8 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:AvenueConnectionString %>" 
-        SelectCommand="SELECT * FROM [User]"
-        InsertCommand="INSERT INTO [User] ([firstName], [lastName], [userName], [dateOfBirth], [email], [password], [userType], [status])
+        SelectCommand="SELECT * FROM [Users]"
+        InsertCommand="INSERT INTO [Users] ([firstName], [lastName], [userName], [dateOfBirth], [email], [password], [userType], [status])
         VALUES (@firstName, @lastName, @userName, @dateOfBirth, @email, @password, @userType, @status)">
 
         <InsertParameters>
