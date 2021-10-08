@@ -34,5 +34,11 @@ namespace Moonlystic
             txtDate.Text = calendar.SelectedDate.ToString("dd/MM/yyyy");
             calendar.Visible = false;
         }
+
+        protected void btnSignUp_Click(object sender, EventArgs e)
+        {
+            SqlDataSource1.Insert();
+            //Show success label
+        }
     }
 }
