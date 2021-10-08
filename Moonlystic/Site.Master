@@ -59,7 +59,22 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav ml-auto">
+                    <% if (Session["id"] == null) { %>
                     <li class="nav-item"><a class="nav-link" runat="server" href="~/SignIn">Sign In</a></li>
+                    <% } %>
+                    <% else { %>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" runat="server" href="#" id="A1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <%= Session["firstName"] + " " + Session["lastName"] %>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" runat="server" href="#">Manage Profile</a>
+                            <a class="dropdown-item" runat="server" href="#">My Cart</a>
+                            <div class="dropdown-divider"></div>
+                            <asp:Button ID="btnSignout" runat="server" Text="Sign Out" class="dropdown-item btn btn-outline-secondary" OnClick="btnSignout_Click" />
+                        </div>
+                    </li>
+                    <% } %>
                 </ul>
             </div>
         </nav>

@@ -13,5 +13,11 @@ namespace Moonlystic
         {
 
         }
+
+        protected void btnSignout_Click(object sender, EventArgs e)
+        {
+            Session.RemoveAll();
+            Response.Redirect(Request.RawUrl);
+        }
     }
 }
