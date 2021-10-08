@@ -38,7 +38,7 @@
             </Scripts>
         </asp:ScriptManager>
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-            <a class="navbar-brand" href="">Moonlystic</a>
+            <a class="navbar-brand" href="~/" runat="server">Moonlystic</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -49,14 +49,17 @@
                     <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" runat="server" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown link
+                            Collections
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" runat="server" href="#">Action</a>
-                            <a class="dropdown-item" runat="server" href="#">Another action</a>
-                            <a class="dropdown-item" runat="server" href="#">Something else here</a>
+                            <a class="dropdown-item" runat="server" href="#">All Products</a>
+                            <a class="dropdown-item" runat="server" href="#">Trending Moons</a>
+                            <a class="dropdown-item" runat="server" href="#">blablabla</a>
                         </div>
                     </li>
+                </ul>
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" runat="server" href="~/SignIn">Sign In</a></li>
                 </ul>
             </div>
         </nav>
@@ -66,7 +69,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Moonlystic Lifestyle Shop</p>
             </footer>
         </div>
 

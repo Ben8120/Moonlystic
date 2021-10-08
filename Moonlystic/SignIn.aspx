@@ -1,12 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SignIn.aspx.cs" Inherits="Moonlystic.SignIn" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Sign In</h1>
-    <div>
-        <h5>Username</h5>
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-        <h5>Password</h5>
-        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox> <br />
-        <asp:Button ID="btnForgotPassword" runat="server" Text="#Forgot Password Modal" />
+    <div class="d-flex justify-content-center">
+        <div class="d-flex flex-column m-3">
+            <asp:TextBox ID="txtUsername" runat="server" placeholder="User Name"></asp:TextBox>
+            <asp:TextBox ID="txtPassword" runat="server" placeholder="--------" TextMode="Password"></asp:TextBox>
+            <asp:Button ID="btnLogin" runat="server" Text="Sign In" />
+            <p>Not Registered? <a href="~/SignUp" runat="server">Create an account</a></p>
+        </div>
     </div>
-    
 </asp:Content>
