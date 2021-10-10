@@ -5,11 +5,24 @@
         <div class="row">
             <div class="col-md-4 col-sm">
                 <!--Card goes here-->
-                <div class="d-flex bd-highlight">
-                    <div class="p-2 flex-grow-1 bd-highlight">Flex Item</div>
-                    <div class="p-2 bd-highlight">Flex Right</div>
+                <div style="background-color:antiquewhite; border-radius:12px;"> <!--Moonlystic Card-->
+                    <div class="d-flex bd-highlight">
+                        <div class="p-2 flex-grow-1 bd-highlight">Flex Card</div>
+                        <div class="p-2 bd-highlight">Flex Right</div>
+                    </div>
+                </div>
+
+                <div class="mt-2 d-flex justify-content-around" style="background-color:antiquewhite; border-radius:8px;"> <!-- Daily Check in Component-->
+                    <span class="dot" style="background-color:greenyellow;"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
                 </div>
             </div>
+
             <div class="col-md-8 col-sm">
                 <!--Profile-->
                 <form>
@@ -49,6 +62,9 @@
                     <button type="button" class="btn btn-primary">Save</button>
                 </form>
             </div>
+        </div>
+        <div style="height:200px; background-color:antiquewhite;">
+            <p>Hello History cart</p>
         </div>
     </div>
 </asp:Content>
