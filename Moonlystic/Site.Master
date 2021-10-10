@@ -68,7 +68,7 @@
                             <%= Session["firstName"] + " " + Session["lastName"] %>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" runat="server" href="#">Manage Profile</a>
+                            <a class="dropdown-item" runat="server" href="~/Profile">Manage Profile</a>
                             <a class="dropdown-item" runat="server" href="#">My Cart</a>
                             <div class="dropdown-divider"></div>
                             <asp:Button ID="btnSignout" runat="server" Text="Sign Out" class="dropdown-item btn btn-outline-secondary" OnClick="btnSignout_Click" />
