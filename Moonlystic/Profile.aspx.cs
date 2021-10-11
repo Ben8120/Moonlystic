@@ -14,41 +14,71 @@ namespace Moonlystic
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["id"] == null)
+            if (!IsPostBack)
             {
-                Response.Redirect("SignIn.aspx");
-            } else
-            {
-                getPersonalData();
+                if (Session["id"] == null)
+                {
+                    Response.Redirect("SignIn.aspx");
+                }
+                else
+                {
+                    getPersonalData();
+                }
             }
         }
 
         protected void getPersonalData()
         {
+            if (!IsPostBack)
+            {
+                string connStr = ConfigurationManager.ConnectionStrings["AvenueConnectionString"].ConnectionString;
+                SqlConnection conn = new SqlConnection(connStr);
+                conn.Open();
+
+                string sqlquery = "SELECT * FROM Users WHERE userId=@id ";
+                SqlCommand comm = new SqlCommand(sqlquery, conn);
+                comm.Parameters.AddWithValue("@id", Session["id"]);
+
+                SqlDataReader reader = comm.ExecuteReader();
+                if (reader.Read() == true)
+                {
+                    //txtBla = reader["bla"].ToString();
+                    txtFirstName.Text = reader["firstName"].ToString();
+                    txtLastName.Text = reader["lastName"].ToString();
+                    txtUserName.Text = reader["userName"].ToString();
+                    txtDate.Text = reader["dateOfBirth"].ToString();
+                    txtEmail.Text = reader["email"].ToString();
+                    txtPassword.Text = reader["password"].ToString();
+                }
+                else
+                {
+                    //response.redirect to signin page
+                }
+
+                reader.Close();
+                conn.Close();
+            }
+        }
+
+        protected void updatePersonalData()
+        {
+            //TODO
             string connStr = ConfigurationManager.ConnectionStrings["AvenueConnectionString"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
             conn.Open();
 
-            string sqlquery = "SELECT * FROM Users WHERE userId=@id ";
-            SqlCommand comm = new SqlCommand(sqlquery, conn);
-            comm.Parameters.AddWithValue("@id", Session["id"]);
+            string sql = "UPDATE Users SET firstName=@firstName, lastName=@lastName, userName=@userName, dateOfBirth=@dateOfBirth, email=@email WHERE userId=@id";
+            SqlCommand command = new SqlCommand(sql, conn);
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@id", Session["id"]);
+            command.Parameters.AddWithValue("@firstName", txtFirstName.Text);
+            command.Parameters.AddWithValue("@lastName", txtLastName.Text);
+            command.Parameters.AddWithValue("@userName", txtUserName.Text);
+            command.Parameters.AddWithValue("@dateOfBirth", txtDate.Text);
+            command.Parameters.AddWithValue("@email", txtEmail.Text);
 
-            SqlDataReader reader = comm.ExecuteReader();
-            if(reader.Read() == true)
-            {
-                //txtBla = reader["bla"].ToString();
-                txtFirstName.Text = reader["firstName"].ToString();
-                txtLastName.Text = reader["lastName"].ToString();
-                txtUserName.Text = reader["userName"].ToString();
-                txtDate.Text = reader["dateOfBirth"].ToString();
-                txtEmail.Text = reader["email"].ToString();
-                txtPassword.Text = reader["password"].ToString();
-            } else
-            {
-                //response.redirect to signin page
-            }
+            command.ExecuteNonQuery();
 
-            reader.Close();
             conn.Close();
         }
 
@@ -57,7 +87,6 @@ namespace Moonlystic
             txtFirstName.ReadOnly = true;
             txtLastName.ReadOnly = true;
             txtUserName.ReadOnly = true;
-            txtDate.ReadOnly = true;
             txtEmail.ReadOnly = true;
             txtPassword.ReadOnly = true;
         }
@@ -67,9 +96,13 @@ namespace Moonlystic
             txtFirstName.ReadOnly = false;
             txtLastName.ReadOnly = false;
             txtUserName.ReadOnly = false;
-            txtDate.ReadOnly = false;
             txtEmail.ReadOnly = false;
             txtPassword.ReadOnly = false;
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            updatePersonalData();
         }
     }
 }

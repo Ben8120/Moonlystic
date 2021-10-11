@@ -44,7 +44,7 @@
                     </div>
                     <div class="form-group">
                         <label for="inputAddress2">Date Of Birth</label>
-                        <asp:TextBox runat="server" class="form-control" id="txtDate" placeholder="Date Of Birth"></asp:TextBox>                        
+                        <asp:TextBox runat="server" class="form-control" id="txtDate" placeholder="Date Of Birth" ReadOnly="True"></asp:TextBox>                        
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
@@ -57,11 +57,11 @@
                         </div>
                     </div>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <asp:Button ID="btnView" runat="server" Text="View" type="button" class="btn btn-secondary" OnClick="btnView_Click"/>
-                    <asp:Button ID="btnEdit" runat="server" Text="Edit" type="button" class="btn btn-secondary" OnClick="btnEdit_Click"/>
-                    <asp:Button ID="btnReset" runat="server" Text="Reset" type="button" class="btn btn-secondary"/>
+                    <asp:Button ID="btnView" runat="server" Text="View" type="button" class="btn btn-warning" OnClick="btnView_Click"/>
+                    <asp:Button ID="btnEdit" runat="server" Text="Edit" type="button" class="btn btn-info" OnClick="btnEdit_Click"/>
+                    <asp:Button ID="btnReset" runat="server" Text="Reset" type="button" class="btn btn-success"/>
                 </div>
-                    <button type="button" class="btn btn-primary">Save</button>
+                    <asp:Button ID="btnSave" runat="server" Text="Save" type="button" class="btn btn-primary" OnClick="btnSave_Click"/>
                 </form>
             </div>
         </div>
