@@ -8,7 +8,9 @@
                 <div style="background-color:antiquewhite; border-radius:12px;"> <!--Moonlystic Card-->
                     <div class="d-flex bd-highlight">
                         <div class="p-2 flex-grow-1 bd-highlight">Flex Card</div>
-                        <div class="p-2 bd-highlight">Flex Right</div>
+                        <div class="p-2 bd-highlight">Flex Right
+                            <img src="https://avatars.dicebear.com/api/jdenticon/ajigflhaf.svg" />
+                        </div>
                     </div>
                 </div>
 
@@ -29,7 +31,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">First Name</label>
-                            <input type="email" class="form-control" id="inputEmail4" placeholder="First Name">
+                            <asp:TextBox runat="server" class="form-control" id="txtFirstName" placeholder="First Name"></asp:TextBox>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Last Name</label>
