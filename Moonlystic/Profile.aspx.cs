@@ -14,7 +14,13 @@ namespace Moonlystic
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            getPersonalData();
+            if (Session["id"] == null)
+            {
+                Response.Redirect("SignIn.aspx");
+            } else
+            {
+                getPersonalData();
+            }
         }
 
         protected void getPersonalData()
@@ -32,6 +38,11 @@ namespace Moonlystic
             {
                 //txtBla = reader["bla"].ToString();
                 txtFirstName.Text = reader["firstName"].ToString();
+                txtLastName.Text = reader["lastName"].ToString();
+                txtUserName.Text = reader["userName"].ToString();
+                txtDate.Text = reader["dateOfBirth"].ToString();
+                txtEmail.Text = reader["email"].ToString();
+                txtPassword.Text = reader["password"].ToString();
             } else
             {
                 //response.redirect to signin page
@@ -39,6 +50,26 @@ namespace Moonlystic
 
             reader.Close();
             conn.Close();
+        }
+
+        protected void btnView_Click(object sender, EventArgs e)
+        {
+            txtFirstName.ReadOnly = true;
+            txtLastName.ReadOnly = true;
+            txtUserName.ReadOnly = true;
+            txtDate.ReadOnly = true;
+            txtEmail.ReadOnly = true;
+            txtPassword.ReadOnly = true;
+        }
+
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+            txtFirstName.ReadOnly = false;
+            txtLastName.ReadOnly = false;
+            txtUserName.ReadOnly = false;
+            txtDate.ReadOnly = false;
+            txtEmail.ReadOnly = false;
+            txtPassword.ReadOnly = false;
         }
     }
 }

@@ -35,31 +35,31 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Last Name</label>
-                            <input type="password" class="form-control" id="inputPassword4" placeholder="Last Name">
+                            <asp:TextBox runat="server" class="form-control" id="txtLastName" placeholder="Last Name"></asp:TextBox>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputAddress">User Name</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="Username">
+                        <asp:TextBox runat="server" class="form-control" id="txtUserName" placeholder="User Name"></asp:TextBox>
                     </div>
                     <div class="form-group">
                         <label for="inputAddress2">Date Of Birth</label>
-                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                        <asp:TextBox runat="server" class="form-control" id="txtDate" placeholder="Date Of Birth"></asp:TextBox>                        
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Email</label>
-                            <input type="email" class="form-control" id="inputEmail5" placeholder="Email">
+                            <asp:TextBox runat="server" class="form-control" id="txtEmail" placeholder="Email"></asp:TextBox>                        
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Password</label>
-                            <input type="password" class="form-control" id="inputPassword5" placeholder="Password">
+                            <asp:TextBox runat="server" class="form-control" id="txtPassword" placeholder="Password" TextMode="Password"></asp:TextBox>                        
                         </div>
                     </div>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-secondary">View</button>
-                    <button type="button" class="btn btn-secondary">Edit</button>
-                    <button type="button" class="btn btn-secondary">Reset</button>
+                    <asp:Button ID="btnView" runat="server" Text="View" type="button" class="btn btn-secondary" OnClick="btnView_Click"/>
+                    <asp:Button ID="btnEdit" runat="server" Text="Edit" type="button" class="btn btn-secondary" OnClick="btnEdit_Click"/>
+                    <asp:Button ID="btnReset" runat="server" Text="Reset" type="button" class="btn btn-secondary"/>
                 </div>
                     <button type="button" class="btn btn-primary">Save</button>
                 </form>
