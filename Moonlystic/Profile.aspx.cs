@@ -42,7 +42,6 @@ namespace Moonlystic
                 SqlDataReader reader = comm.ExecuteReader();
                 if (reader.Read() == true)
                 {
-                    //txtBla = reader["bla"].ToString();
                     txtFirstName.Text = reader["firstName"].ToString();
                     txtLastName.Text = reader["lastName"].ToString();
                     txtUserName.Text = reader["userName"].ToString();
@@ -62,7 +61,6 @@ namespace Moonlystic
 
         protected void updatePersonalData()
         {
-            //TODO
             string connStr = ConfigurationManager.ConnectionStrings["AvenueConnectionString"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
             conn.Open();

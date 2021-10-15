@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SignUp.aspx.cs" Inherits="Moonlystic.SignUp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <!--SqlDataSource1 is Users.dbo-->
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:AvenueConnectionString %>" 
         SelectCommand="SELECT * FROM [Users]"
@@ -17,6 +18,21 @@
             <asp:Parameter DefaultValue="0" Name="status" Type="Int32" />
         </InsertParameters>
     </asp:SqlDataSource>
+    <!--SqlDataSource2 is Wallet.dbo-->
+    <!--TODO: Foreign key to link to Users table, username should be unique-->
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server"
+        ConnectionString="<%$ ConnectionStrings:AvenueConnectionString %>"
+        SelectCommand="SELECT * FROM [Wallet]"
+        InsertCommand="INSERT INTO [Wallet] ([walletId], [balance], [gameToken])
+        VALUES (@userName, @balance, @gameToken)">
+
+        <InsertParameters>
+            <asp:ControlParameter ControlID="txtUserName" Name="userName" Type="String" />
+            <asp:Parameter DefaultValue="0" Name="balance" Type="Double" />
+            <asp:Parameter DefaultValue="0" Name="gameToken" Type="Int32" />
+        </InsertParameters>
+    </asp:SqlDataSource>
+
     <h1>Sign Up</h1>
     <div>
         <table style="width: 100%;">
