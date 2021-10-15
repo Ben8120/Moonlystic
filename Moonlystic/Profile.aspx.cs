@@ -31,6 +31,7 @@ namespace Moonlystic
         {
             if (!IsPostBack)
             {
+                //for loading personal profile
                 string connStr = ConfigurationManager.ConnectionStrings["AvenueConnectionString"].ConnectionString;
                 SqlConnection conn = new SqlConnection(connStr);
                 conn.Open();

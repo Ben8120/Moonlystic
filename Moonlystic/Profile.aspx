@@ -7,7 +7,9 @@
                 <!--Card goes here-->
                 <div style="background-color:antiquewhite; border-radius:12px;"> <!--Moonlystic Card-->
                     <div class="d-flex bd-highlight">
-                        <div class="p-2 flex-grow-1 bd-highlight">Flex Card</div>
+                        <div class="p-2 flex-grow-1 bd-highlight">Flex Card
+                            <p>Balance:</p>
+                        </div>
                         <div class="p-2 bd-highlight">Flex Right
                             <img src="https://avatars.dicebear.com/api/jdenticon/ajigflhaf.svg" />
                         </div>

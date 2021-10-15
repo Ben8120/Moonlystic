@@ -4,8 +4,8 @@
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:AvenueConnectionString %>" 
         SelectCommand="SELECT * FROM [Users]"
-        InsertCommand="INSERT INTO [Users] ([firstName], [lastName], [userName], [dateOfBirth], [email], [password], [userType], [status])
-        VALUES (@firstName, @lastName, @userName, @dateOfBirth, @email, @password, @userType, @status)">
+        InsertCommand="INSERT INTO [Users] ([firstName], [lastName], [userName], [dateOfBirth], [email], [password], [userType], [status], [balance], [gameToken], [checkInDays])
+        VALUES (@firstName, @lastName, @userName, @dateOfBirth, @email, @password, @userType, @status, @balance, @gameToken, @checkInDays)">
 
         <InsertParameters>
             <asp:ControlParameter ControlID="txtFirstName" Name="firstName" Type="String" />
@@ -16,23 +16,12 @@
             <asp:ControlParameter ControlID="txtPassword" Name="password" Type="String" />
             <asp:Parameter DefaultValue="0" Name="userType" Type="Int32" />
             <asp:Parameter DefaultValue="0" Name="status" Type="Int32" />
-        </InsertParameters>
-    </asp:SqlDataSource>
-    <!--SqlDataSource2 is Wallet.dbo-->
-    <!--TODO: Foreign key to link to Users table, username should be unique-->
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server"
-        ConnectionString="<%$ ConnectionStrings:AvenueConnectionString %>"
-        SelectCommand="SELECT * FROM [Wallet]"
-        InsertCommand="INSERT INTO [Wallet] ([walletId], [balance], [gameToken])
-        VALUES (@userName, @balance, @gameToken)">
-
-        <InsertParameters>
-            <asp:ControlParameter ControlID="txtUserName" Name="userName" Type="String" />
-            <asp:Parameter DefaultValue="0" Name="balance" Type="Double" />
+            <asp:Parameter DefaultValue="0.00" Name="balance" Type="decimal" />
             <asp:Parameter DefaultValue="0" Name="gameToken" Type="Int32" />
+            <asp:Parameter DefaultValue="0" Name="checkInDays" Type="Int32" />
         </InsertParameters>
     </asp:SqlDataSource>
-
+    
     <h1>Sign Up</h1>
     <div>
         <table style="width: 100%;">

@@ -38,7 +38,6 @@ namespace Moonlystic
         protected void btnSignUp_Click(object sender, EventArgs e)
         {
             SqlDataSource1.Insert();
-            SqlDataSource2.Insert();
             //Show success label
         }
 
