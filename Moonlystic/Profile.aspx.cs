@@ -12,6 +12,8 @@ namespace Moonlystic
 {
     public partial class Profile : System.Web.UI.Page
     {
+        string balance;
+        string tokens;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -49,6 +51,8 @@ namespace Moonlystic
                     txtDate.Text = reader["dateOfBirth"].ToString();
                     txtEmail.Text = reader["email"].ToString();
                     txtPassword.Text = reader["password"].ToString();
+                    balance = reader["balance"].ToString();
+                    tokens = reader["gameToken"].ToString();
                 }
                 else
                 {
@@ -58,6 +62,16 @@ namespace Moonlystic
                 reader.Close();
                 conn.Close();
             }
+        }
+
+        protected string getBalance()
+        {
+            return balance;
+        }
+
+        protected string getToken()
+        {
+            return tokens;
         }
 
         protected void updatePersonalData()

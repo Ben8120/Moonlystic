@@ -8,21 +8,19 @@
                 <div style="background-color:antiquewhite; border-radius:12px;"> <!--Moonlystic Card-->
                     <div class="d-flex bd-highlight">
                         <div class="p-2 flex-grow-1 bd-highlight">Flex Card
-                            <p>Balance:</p>
+                            <p>Balance: <%=getBalance() %></p>
+                            <p>Game Tokens: <%=getToken() %></p>
                         </div>
                         <div class="p-2 bd-highlight">Flex Right
-                            <img src="https://avatars.dicebear.com/api/jdenticon/ajigflhaf.svg" />
+                            <img src="https://avatars.dicebear.com/api/jdenticon/ajighaf.svg" />
                         </div>
                     </div>
                 </div>
 
                 <div class="mt-2 d-flex justify-content-around" style="background-color:antiquewhite; border-radius:8px;"> <!-- Daily Check in Component-->
-                    <span class="dot" style="background-color:greenyellow;"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
+                    <%for (int i=0; i<6; i++) { %>
+                        <span class="dot" style="background-color:greenyellow;"></span>
+                    <% } %>
                     <span class="dot"></span>
                 </div>
             </div>
