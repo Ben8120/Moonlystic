@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Admin.aspx.cs" Inherits="Moonlystic.Admin" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Administrator Page</h1>
+    <p>p.s you forgot about vouchers</p>
     <div class="container">
         <div class="row">
             <div class="col-4">
@@ -80,6 +81,7 @@
                     <asp:TextBox ID="txtBalance" placeholder="Balance" runat="server" TextMode="Number"></asp:TextBox>
                     <asp:TextBox ID="txtgameToken" placeholder="Game Token" runat="server" TextMode="Number"></asp:TextBox>
                     <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" />
+                    <!--some should be dropdowns, some should be in Calendar form-->
                 </asp:Panel>
                 
                 <asp:Panel ID="PanelManageFAQ" runat="server">
