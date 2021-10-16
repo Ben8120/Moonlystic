@@ -15,6 +15,8 @@ namespace Moonlystic
             if (!IsPostBack)
             {
                 hideAllPanels();
+                btnCategory.Attributes["class"] = btnActive;
+                PanelCategory.Visible = true;
             }
         }
 
@@ -85,6 +87,13 @@ namespace Moonlystic
             btnOrders.Attributes["class"] = inactive;
             btnProducts.Attributes["class"] = inactive;
             btnUsers.Attributes["class"] = inactive;
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            //SQLConnection here
+            sqlUsers.Insert();
+            Response.Redirect("Admin.aspx");
         }
     }
 }
