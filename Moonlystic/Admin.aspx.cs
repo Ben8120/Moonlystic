@@ -101,5 +101,16 @@ namespace Moonlystic
             sqlCat.Insert();
             Response.Redirect("Admin.aspx");
         }
+
+        protected void ddlProdCat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnProdAdd_Click(object sender, EventArgs e)
+        {
+            sqlProd.Insert();
+            Response.Redirect("Admin.aspx");
+        }
     }
 }
