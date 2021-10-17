@@ -78,6 +78,51 @@ namespace Moonlystic
         protected global::System.Web.UI.WebControls.Panel PanelCategory;
 
         /// <summary>
+        /// GridViewCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridViewCategory;
+
+        /// <summary>
+        /// sqlCat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlCat;
+
+        /// <summary>
+        /// txtCatName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCatName;
+
+        /// <summary>
+        /// fileCat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fileCat;
+
+        /// <summary>
+        /// btnCatAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCatAdd;
+
+        /// <summary>
         /// PanelManageProducts control.
         /// </summary>
         /// <remarks>

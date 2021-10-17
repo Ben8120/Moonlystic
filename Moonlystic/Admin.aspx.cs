@@ -95,5 +95,11 @@ namespace Moonlystic
             sqlUsers.Insert();
             Response.Redirect("Admin.aspx");
         }
+
+        protected void btnCatAdd_Click(object sender, EventArgs e)
+        {
+            sqlCat.Insert();
+            Response.Redirect("Admin.aspx");
+        }
     }
 }
