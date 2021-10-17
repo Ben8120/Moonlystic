@@ -5,3 +5,13 @@
     border-radius: 50%;
     display: inline-block;
 }
+
+.horizontal-scroll {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space:nowrap
+}
+
+.h-scroll {
+    display: inline-block;
+}

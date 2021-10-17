@@ -109,6 +109,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Admin.aspx" />
+    <Content Include="Assets\gray.jpg" />
     <Content Include="Category.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
