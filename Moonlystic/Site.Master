@@ -89,5 +89,6 @@
         </div>
 
     </form>
+    <script src="Scripts/custom.js"></script>
 </body>
 </html>

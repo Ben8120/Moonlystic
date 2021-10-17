@@ -1,6 +1,27 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Moonlystic._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <p>Welcome!</p>
+                            </div>
+                            <div class="modal-body">
+                                <p>This is a mock lifestyle e-commerce store made from asp.net. The following products you see inside are not real. This is just an assignment project of mine. Feel free to give any feedbacks you have :)</p>
+                            </div>
+                            <div class="modal-footer">
+                                <input class="btn btn-primary" data-dismiss="modal" value="Close" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="jumbotron">
         <h1>Moonlystic Lifestyle Shop</h1>
@@ -11,6 +32,7 @@
     <div class="row">
         <div class="col-md-4">
             <h2>Getting started</h2>
+            <a href="*" data-toggle="modal" data-target="#myModal">Open Modal</a>
             <p>
                 ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
             A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
@@ -38,5 +60,4 @@
             </p>
         </div>
     </div>
-
 </asp:Content>
