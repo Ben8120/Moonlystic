@@ -2,4 +2,79 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Products Page</h1>
     <p>Product cards in here</p>
+    <div class="row">
+        <div class="col-md-2">
+            <p>Hi</p>
+        </div>
+        <div class="col-md-10">
+            <div class="row">
+                <div class="card m-1 col-sm" style="width: 18rem;">
+                    <img class="card-img-top" src="Assets/gray.jpg" alt="Image Name" />
+                    <div class="card-body">
+                        <h5 class="card-title">Card Title</h5>
+                        <p class="card-text">Testing of cards</p>
+                        <a href="#" class="btn btn-primary">Button</a>
+                    </div>
+                </div>
+                <div class="card m-1 col-sm" style="width: 18rem;">
+                    <img class="card-img-top" src="Assets/gray.jpg" alt="Image Name" />
+                    <div class="card-body">
+                        <h5 class="card-title">Card Title</h5>
+                        <p class="card-text">Testing of cards</p>
+                        <a href="#" class="btn btn-primary">Button</a>
+                    </div>
+                </div>
+                <div class="card m-1 col-sm" style="width: 18rem;">
+                    <img class="card-img-top" src="Assets/gray.jpg" alt="Image Name" />
+                    <div class="card-body">
+                        <h5 class="card-title">Card Title</h5>
+                        <p class="card-text">Testing of cards</p>
+                        <a href="#" class="btn btn-primary">Button</a>
+                    </div>
+                </div>
+                <div class="card m-1 col-sm" style="width: 18rem;">
+                    <img class="card-img-top" src="Assets/gray.jpg" alt="Image Name" />
+                    <div class="card-body">
+                        <h5 class="card-title">Card Title</h5>
+                        <p class="card-text">Testing of cards</p>
+                        <a href="#" class="btn btn-primary">Button</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="card m-1 col-md" style="width: 18rem;">
+                    <img class="card-img-top" src="Assets/gray.jpg" alt="Image Name" />
+                    <div class="card-body">
+                        <h5 class="card-title">Card Title</h5>
+                        <p class="card-text">Testing of cards</p>
+                        <a href="#" class="btn btn-primary">Button</a>
+                    </div>
+                </div>
+                <div class="card m-1 col-md" style="width: 18rem;">
+                    <img class="card-img-top" src="Assets/gray.jpg" alt="Image Name" />
+                    <div class="card-body">
+                        <h5 class="card-title">Card Title</h5>
+                        <p class="card-text">Testing of cards</p>
+                        <a href="#" class="btn btn-primary">Button</a>
+                    </div>
+                </div>
+                <div class="card m-1 col-md" style="width: 18rem;">
+                    <img class="card-img-top" src="Assets/gray.jpg" alt="Image Name" />
+                    <div class="card-body">
+                        <h5 class="card-title">Card Title</h5>
+                        <p class="card-text">Testing of cards</p>
+                        <a href="#" class="btn btn-primary">Button</a>
+                    </div>
+                </div>
+                <div class="card m-1 col-md" style="width: 18rem;">
+                    <img class="card-img-top" src="Assets/gray.jpg" alt="Image Name" />
+                    <div class="card-body">
+                        <h5 class="card-title">Card Title</h5>
+                        <p class="card-text">Testing of cards</p>
+                        <a href="#" class="btn btn-primary">Button</a>
+                    </div>
+                </div>
+            </div>        </div>
+    </div>
 </asp:Content>
