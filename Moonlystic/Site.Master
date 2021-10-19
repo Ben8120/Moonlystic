@@ -67,7 +67,11 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" runat="server" href="~/Profile">Manage Profile</a>
-                            <a class="dropdown-item" runat="server" href="#">My Cart<span class="badge badge-warning m-2">10</span></a>
+                            <a class="dropdown-item" runat="server" href="#">My Cart
+                                <% if (cartAmount >= 0) { %>
+                                <span class="badge badge-warning m-2"><% =cartAmount %></span>
+                                <% } %>
+                            </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" runat="server" href="~/Admin">Admin Page (Beta)</a>
                             <div class="dropdown-divider"></div>

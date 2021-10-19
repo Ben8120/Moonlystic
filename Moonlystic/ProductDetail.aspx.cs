@@ -90,6 +90,8 @@ namespace Moonlystic
                 comm.ExecuteNonQuery();
 
                 conn.Close();
+
+                Response.Redirect("Products.aspx");
             } else
             {
                 Response.Write("Need to Log In First!");
