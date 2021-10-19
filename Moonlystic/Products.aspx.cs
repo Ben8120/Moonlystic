@@ -15,13 +15,14 @@ namespace Moonlystic
         protected void Page_Load(object sender, EventArgs e)
         {
             productInfo = getProductInfo();
+            /* for testing only
             foreach (List<string> product in productInfo)
             {
                 foreach (string prod in product)
                 {
                     Response.Write(prod);
                 }
-            }
+            } */
         }
 
         protected List<List<String>> getProductInfo()

@@ -148,6 +148,31 @@
 
                 <asp:Panel ID="PanelManageFAQ" runat="server">
                     <p>Manage FAQ Panel</p>
+                    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="faqId" DataSourceID="sqlFaq">
+                        <Columns>
+                            <asp:BoundField DataField="faqId" HeaderText="faqId" ReadOnly="True" SortExpression="faqId" />
+                            <asp:BoundField DataField="faqTitle" HeaderText="faqTitle" SortExpression="faqTitle" />
+                            <asp:BoundField DataField="faqDesc" HeaderText="faqDesc" SortExpression="faqDesc" />
+                            <asp:BoundField DataField="faqVisible" HeaderText="faqVisible" SortExpression="faqVisible" />
+                        </Columns>
+                    </asp:GridView>
+
+                    <asp:SqlDataSource ID="sqlFaq" runat="server" 
+                        ConnectionString="<%$ ConnectionStrings:AvenueConnectionString %>" 
+                        SelectCommand="SELECT * FROM [Faq]"
+                        InsertCommand="INSERT INTO [Faq] ([faqTitle], [faqDesc], [faqVisible]) VALUES (@faqTitle, @faqDesc, @faqVisible)">
+                        <InsertParameters>
+                            <asp:ControlParameter ControlID="txtFaqTitle" Name="faqTitle" Type="String" />
+                            <asp:ControlParameter ControlID="txtFaqDesc" Name="faqDesc" Type="String" />
+                            <asp:ControlParameter ControlID="chkFaqVisible" Name="faqVisible" Type="boolean" />
+
+                        </InsertParameters>
+                    </asp:SqlDataSource>
+                    <asp:TextBox ID="txtFaqTitle" runat="server" placeholder="FAQ Title"></asp:TextBox>
+                    <asp:TextBox ID="txtFaqDesc" runat="server" placeholder="FAQ Description"></asp:TextBox> <br />
+                    <asp:CheckBox ID="chkFaqVisible" runat="server" value="Visible" Checked="true"/><p>Visible</p> <br />
+                    <p><% =faqVisible %></p>
+                    <asp:Button ID="btnAddFaq" runat="server" Text="Add" OnClick="btnAddFaq_Click" />
                 </asp:Panel>
 
 

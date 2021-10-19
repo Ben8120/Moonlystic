@@ -9,6 +9,7 @@ namespace Moonlystic
 {
     public partial class Admin : System.Web.UI.Page
     {
+        protected bool faqVisible;
         string btnActive = "btn btn-primary active";
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -111,6 +112,18 @@ namespace Moonlystic
         {
             sqlProd.Insert();
             Response.Redirect("Admin.aspx");
+        }
+
+        protected void btnAddFaq_Click(object sender, EventArgs e)
+        {
+            if (chkFaqVisible.Checked)
+            {
+                faqVisible = true;
+            } else
+            {
+                faqVisible = false;
+            }
+            sqlFaq.Insert();
         }
     }
 }

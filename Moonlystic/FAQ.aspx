@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FAQ.aspx.cs" Inherits="Moonlystic.FAQ" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="accordion" id="Faq">
+        <% =loadFaq() %>
         <div class="card">
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
@@ -24,7 +25,7 @@
                     </button>
                 </h5>
             </div>
-            <div id="collapseTwo" class="collapse show" aria-labelledby="headingOne" data-parent="#Faq">
+            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#Faq">
                 <div class="card-body">
                     BlablablaBlablablaBlablablaBlablablaBlablablaBlablablaBlablabla
                 </div>
