@@ -17,7 +17,7 @@
                 <asp:Button ID="btnAdd" runat="server" Text="+" class="btn btn-outline-secondary" OnClick="btnAdd_Click"/>
             </div>
             <asp:Button ID="btnBuy" runat="server" Text="Buy Now" class="btn btn-primary btn-lg"/>
-            <asp:Button ID="btnCart" runat="server" Text="Add to Cart" class="btn btn-primary btn-lg"/>
+            <asp:Button ID="btnCart" runat="server" Text="Add to Cart" class="btn btn-primary btn-lg" OnClick="btnCart_Click"/>
         </div>
     </div>
     <h1>Reviews</h1>

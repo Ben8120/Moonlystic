@@ -70,5 +70,31 @@ namespace Moonlystic
                 txtQuantity.Text = i.ToString();
             }
         }
+
+        protected void btnCart_Click(object sender, EventArgs e)
+        {
+            if (Session["id"] != null)
+            {
+                string connStr = ConfigurationManager.ConnectionStrings["AvenueConnectionString"].ConnectionString;
+                SqlConnection conn = new SqlConnection(connStr);
+                conn.Open();
+
+                string sqlquery = "INSERT INTO Cart VALUES (@productId, @userId, @orderAmount, @hasPaid, @cartPrice)";
+                SqlCommand comm = new SqlCommand(sqlquery, conn);
+                comm.Parameters.AddWithValue("@productId", Session["productId"]);
+                comm.Parameters.AddWithValue("@userId", Session["id"]);
+                comm.Parameters.AddWithValue("@orderAmount", int.Parse(txtQuantity.Text));
+                comm.Parameters.AddWithValue("@hasPaid", false);
+                comm.Parameters.AddWithValue("@cartPrice", decimal.Parse(productPrice));
+
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+            } else
+            {
+                Response.Write("Need to Log In First!");
+            }
+            
+        }
     }
 }
