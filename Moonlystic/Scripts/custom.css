@@ -24,3 +24,18 @@
 .grow:hover {
     transform: scale(1.1);
 }
+/*------------------------------*/
+
+/*Cards*/
+.my-card {
+    height: 120px;
+    width: 120px;
+    background-color: cornflowerblue;
+    border: 4px;
+}
+
+.bank-card {
+    height: 120px;
+    width: 120px;
+    background-color: cadetblue;
+}

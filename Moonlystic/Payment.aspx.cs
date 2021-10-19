@@ -13,5 +13,29 @@ namespace Moonlystic
         {
 
         }
+
+        protected void btnMy_Click(object sender, EventArgs e)
+        {
+            if (panelMY.Visible == true)
+            {
+
+            } else
+            {
+                panelBank.Visible = false;
+                panelMY.Visible = true;
+            }
+        }
+
+        protected void btnBank_Click(object sender, EventArgs e)
+        {
+            if (panelBank.Visible == true)
+            {
+
+            } else
+            {
+                panelMY.Visible = false;
+                panelBank.Visible = true;
+            }
+        }
     }
 }

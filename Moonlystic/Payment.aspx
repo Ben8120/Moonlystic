@@ -38,17 +38,23 @@
     </table>
     <div class="row">
         <div class="col-6">
-            <p>Pay with MY Card</p>
+            <div class="grow my-card">
+                <p>Moon Card</p>
+            </div>
+            <asp:Button ID="btnMy" runat="server" Text="Moon" OnClick="btnMy_Click"/>
         </div>
         <div class="col-6">
-            <p>Pay with Bank Card</p>
+            <div class="bank-card grow">
+                <p>Bank Card</p>
+            </div>
+            <asp:Button ID="btnBank" runat="server" Text="Bank" OnClick="btnBank_Click" />
         </div>
     </div>
     <asp:Panel ID="panelMY" runat="server">
         <h3>Panel for Moon Card</h3>
         <p>The User Card Here :( (copy from Profile page that one)</p>
     </asp:Panel>
-    <asp:Panel ID="panelBank" runat="server">
+    <asp:Panel ID="panelBank" runat="server" Visible="false">
         <h3>Panel for Bank Card</h3>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -63,4 +69,8 @@
             <asp:TextBox ID="txtCardNumber" runat="server" class="form-control"></asp:TextBox>
         </div>
     </asp:Panel>
+    <asp:Button ID="btnPay" runat="server" Text="Pay Now" class="btn btn-primary btn-lg btn-block"/>
+    <div style="width:100%">
+        
+    </div>
 </asp:Content>

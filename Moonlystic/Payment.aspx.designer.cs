@@ -15,6 +15,24 @@ namespace Moonlystic
     {
 
         /// <summary>
+        /// btnMy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMy;
+
+        /// <summary>
+        /// btnBank control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBank;
+
+        /// <summary>
         /// panelMY control.
         /// </summary>
         /// <remarks>
@@ -49,5 +67,14 @@ namespace Moonlystic
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCardNumber;
+
+        /// <summary>
+        /// btnPay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPay;
     }
 }
