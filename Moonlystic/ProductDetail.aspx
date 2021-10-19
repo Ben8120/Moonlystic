@@ -12,9 +12,9 @@
             <h5>RM<% =productPrice %></h5>
             <p>If discount is >=0.00 slash the price and show the discounted value</p>
             <div class="input-group">
-                <asp:Button ID="btnMinus" runat="server" Text="-" class="btn btn-outline-secondary" />
-                <asp:TextBox ID="txtQuantity" runat="server" class="form-control"></asp:TextBox>
-                <asp:Button ID="btnAdd" runat="server" Text="+" class="btn btn-outline-secondary"/>
+                <asp:Button ID="btnMinus" runat="server" Text="-" class="btn btn-outline-secondary" OnClick="btnMinus_Click" />
+                <asp:TextBox ID="txtQuantity" runat="server" class="form-control" Text="1"></asp:TextBox>
+                <asp:Button ID="btnAdd" runat="server" Text="+" class="btn btn-outline-secondary" OnClick="btnAdd_Click"/>
             </div>
             <asp:Button ID="btnBuy" runat="server" Text="Buy Now" class="btn btn-primary btn-lg"/>
             <asp:Button ID="btnCart" runat="server" Text="Add to Cart" class="btn btn-primary btn-lg"/>

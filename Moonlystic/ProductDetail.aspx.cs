@@ -17,31 +17,57 @@ namespace Moonlystic
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            getProductDetail();
+            //if (!IsPostBack)
+            //{
+                if (Session["productId"] != null)
+                {
+                    getProductDetail();
+                }
+                else
+                {
+                    Response.Redirect("Products.aspx");
+                }
+            //}
         }
 
         protected void getProductDetail()
         {
-            if (!IsPostBack)
+            string connStr = ConfigurationManager.ConnectionStrings["AvenueConnectionString"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connStr);
+            conn.Open();
+
+            string sqlquery = "SELECT * FROM Product WHERE productId=@id ";
+            SqlCommand comm = new SqlCommand(sqlquery, conn);
+            comm.Parameters.AddWithValue("@id", Session["productId"]);
+
+            SqlDataReader reader = comm.ExecuteReader();
+            if (reader.Read() == true)
             {
-                string connStr = ConfigurationManager.ConnectionStrings["AvenueConnectionString"].ConnectionString;
-                SqlConnection conn = new SqlConnection(connStr);
-                conn.Open();
+                productName = reader["productName"].ToString();
+                productDesc = reader["productDesc"].ToString();
+                productPrice = reader["productPrice"].ToString();
+            }
 
-                string sqlquery = "SELECT * FROM Product WHERE productId=@id ";
-                SqlCommand comm = new SqlCommand(sqlquery, conn);
-                comm.Parameters.AddWithValue("@id", Session["productId"]);
+            reader.Close();
+            conn.Close();
+        }
 
-                SqlDataReader reader = comm.ExecuteReader();
-                if (reader.Read() == true)
-                {
-                    productName = reader["productName"].ToString();
-                    productDesc = reader["productDesc"].ToString();
-                    productPrice = reader["productPrice"].ToString();
-                }
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            txtQuantity.Text = (int.Parse(txtQuantity.Text) + 1).ToString();
+        }
 
-                reader.Close();
-                conn.Close();
+        protected void btnMinus_Click(object sender, EventArgs e)
+        {
+            int i;
+            i = int.Parse(txtQuantity.Text);
+            if (i <= 1)
+            {
+                txtQuantity.Text = i.ToString();
+            } else
+            {
+                i--;
+                txtQuantity.Text = i.ToString();
             }
         }
     }
