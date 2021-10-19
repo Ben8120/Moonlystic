@@ -7,9 +7,10 @@
             <img class="rounded-right" src="Assets/gray.jpg" alt="Image" style="height:200px;width:200px;"/>
         </div>
         <div class="col-md-9">
-            <h1>Product Name</h1>
-            <p>Description: lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem </p>
-            <h5>Product Price</h5>
+            <h1><% =productName %></h1>
+            <p><% =productDesc %></p>
+            <h5>RM<% =productPrice %></h5>
+            <p>If discount is >=0.00 slash the price and show the discounted value</p>
             <div class="input-group">
                 <asp:Button ID="btnMinus" runat="server" Text="-" class="btn btn-outline-secondary" />
                 <asp:TextBox ID="txtQuantity" runat="server" class="form-control"></asp:TextBox>

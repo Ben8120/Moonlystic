@@ -14,7 +14,8 @@
                         <div class="card-body">
                             <h5 class="card-title"><% =product[0] %></h5>
                             <p class="card-text">RM<% =product[1] %></p>
-                            <a href="#" class="btn btn-outline-warning">Buy</a>
+                            <p style="display:none"><% =product[2] %></p>
+                            <asp:Button ID="btnBuy" runat="server" Text="Buy" class="btn btn-outline-warning" OnClick="btnBuy_Click" />
                         </div>
                     </div>
                 <% } %>
@@ -61,6 +62,7 @@
                         <a href="#" class="btn btn-primary">Button</a>
                     </div>
                 </div>
-            </div>        </div>
+            </div>        
+        </div>
     </div>
 </asp:Content>

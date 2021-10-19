@@ -40,10 +40,11 @@ namespace Moonlystic
                 SqlDataReader reader = comm.ExecuteReader();
                 while (reader.Read())
                 {
-                    getProductInfos.Add(new List<string> { reader["productName"].ToString(), reader["productPrice"].ToString() });
+                    getProductInfos.Add(new List<string> { reader["productName"].ToString(), reader["productPrice"].ToString(), reader["productId"].ToString() });
 
                 }
-                /*
+
+                /* This does not continue to add more Lists, use while loop for that
                 if (reader.Read() == true)
                 {
                     getProductInfos.Add(new List<string> { reader["productName"].ToString(), reader["productPrice"].ToString() });
@@ -52,9 +53,17 @@ namespace Moonlystic
                 {
                     //response.redirect
                 }*/
+                reader.Close();
+                conn.Close();
             }
 
             return getProductInfos;
+        }
+
+        protected void btnBuy_Click(object sender, EventArgs e)
+        {
+            Session["productId"] = 1;
+            Response.Redirect("ProductDetail.aspx");
         }
     }
 }

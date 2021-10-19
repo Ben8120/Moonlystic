@@ -46,6 +46,7 @@
     </div>
     <asp:Panel ID="panelMY" runat="server">
         <h3>Panel for Moon Card</h3>
+        <p>The User Card Here :( (copy from Profile page that one)</p>
     </asp:Panel>
     <asp:Panel ID="panelBank" runat="server">
         <h3>Panel for Bank Card</h3>
@@ -54,8 +55,10 @@
                 <span class="input-group-text">Name On Card</span>
             </div>
             <asp:TextBox ID="txtNameOnCard" runat="server" class="form-control" aria-describedby="basic-addon3"></asp:TextBox>
+        </div>
+        <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text ml-2">Card</span>
+                <span class="input-group-text ml-2">Card Number</span>
             </div>
             <asp:TextBox ID="txtCardNumber" runat="server" class="form-control"></asp:TextBox>
         </div>
