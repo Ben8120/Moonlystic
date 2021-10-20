@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -36,6 +38,21 @@ namespace Moonlystic
                 panelMY.Visible = false;
                 panelBank.Visible = true;
             }
+        }
+
+        protected void btnPay_Click(object sender, EventArgs e)
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["AvenueConnectionString"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connStr);
+            conn.Open();
+
+            string sqlquery = "UPDATE Cart SET hasPaid=1 WHERE userId=@userId";
+            SqlCommand comm = new SqlCommand(sqlquery, conn);
+            comm.Parameters.AddWithValue("@userId", Session["id"]);
+
+            comm.ExecuteNonQuery();
+
+            conn.Close();
         }
     }
 }

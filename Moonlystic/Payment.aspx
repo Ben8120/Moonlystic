@@ -69,7 +69,7 @@
             <asp:TextBox ID="txtCardNumber" runat="server" class="form-control"></asp:TextBox>
         </div>
     </asp:Panel>
-    <asp:Button ID="btnPay" runat="server" Text="Pay Now" class="btn btn-primary btn-lg btn-block"/>
+    <asp:Button ID="btnPay" runat="server" Text="Pay Now" class="btn btn-primary btn-lg btn-block" OnClick="btnPay_Click"/>
     <div style="width:100%">
         
     </div>

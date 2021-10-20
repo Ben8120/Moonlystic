@@ -89,6 +89,7 @@
             <hr />
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - Moonlystic Lifestyle Shop</p>
+                <a href="FAQ.aspx">Frequently asked questions</a>
             </footer>
         </div>
 
