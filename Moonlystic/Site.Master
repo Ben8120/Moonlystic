@@ -68,7 +68,7 @@
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" runat="server" href="~/Profile">Manage Profile</a>
                             <a class="dropdown-item" runat="server" href="~/Cart">My Cart
-                                <% if (cartAmount >= 0) { %>
+                                <% if (cartAmount > 0) { %>
                                 <span class="badge badge-warning m-2"><% =cartAmount %></span>
                                 <% } %>
                             </a>

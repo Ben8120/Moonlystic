@@ -34,7 +34,7 @@ namespace Moonlystic
             SqlConnection conn = new SqlConnection(connStr);
             conn.Open();
 
-            string sqlquery = "SELECT * FROM Cart WHERE userId=@userId";
+            string sqlquery = "SELECT * FROM Cart WHERE userId=@userId AND hasPaid=0";
             SqlCommand comm = new SqlCommand(sqlquery, conn);
             comm.Parameters.AddWithValue("@userId", Session["id"]);
 

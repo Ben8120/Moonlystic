@@ -13,6 +13,15 @@
             </tr>
         </thead>
         <tbody>
+            <% foreach (List<string> cartinfo in cartInfo) { %>
+            <tr>
+                <th scope="col">1</th>
+                <td><img src="Assets/gray.jpg" style="width:150px;height:150px;"/></td>
+                <td><p><% =cartinfo[0] %></p></td>
+                <td><p><% =cartinfo[1] %></p></td>
+                <td><p>RM<% =cartinfo[2] %></p></td>
+            </tr>
+            <% } %>
             <tr>
                 <th scope="col">1</th>
                 <td><img src="Assets/gray.jpg" style="width:150px;height:150px;"/></td>

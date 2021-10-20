@@ -11,26 +11,28 @@ namespace Moonlystic
 {
     public partial class Cart : System.Web.UI.Page
     {
+        protected List<List<string>> cartInfo;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["id"] != null)
             {
-                //TODO: get product ID from each List
+                cartInfo = getCartItemData();
             } else
             {
                 Response.Redirect("SignIn.aspx");
             }
         }
 
-        protected List<List<int>> getCartItemData()
+        protected List<List<string>> getCartItemData()
         {
             List<List<int>> cartIds = new List<List<int>>();
+            List<List<string>> cartInfo = new List<List<string>>();
 
             string connStr = ConfigurationManager.ConnectionStrings["AvenueConnectionString"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
             conn.Open();
 
-            string sqlquery = "SELECT Cart.cartId, Cart.productId, Product.productName FROM Cart INNER JOIN Product ON Cart.productId=Product.productName WHERE userId=@id";
+            string sqlquery = "SELECT Product.productName, Cart.orderAmount, Cart.cartPrice FROM Cart INNER JOIN Product ON Cart.productId = Product.productId WHERE userId = 1 AND Cart.hasPaid = 0";
             SqlCommand comm = new SqlCommand(sqlquery, conn);
             comm.Parameters.AddWithValue("@userId", Session["id"]);
 
@@ -38,13 +40,14 @@ namespace Moonlystic
 
             while (reader.Read() == true)
             {
-                cartIds.Add(new List<int> { int.Parse(reader["cartId"].ToString()), int.Parse(reader["productId"].ToString()) });
+                //cartIds.Add(new List<int> { int.Parse(reader["cartId"].ToString()), int.Parse(reader["productId"].ToString()) });
+                cartInfo.Add(new List<string> { reader["productName"].ToString(), reader["orderAmount"].ToString(), reader["cartPrice"].ToString() });
             }
 
             reader.Close();
             conn.Close();
 
-            return cartIds;
+            return cartInfo;
         }
 
         protected void getCartDatas()
