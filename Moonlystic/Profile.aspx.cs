@@ -14,6 +14,7 @@ namespace Moonlystic
     {
         string balance;
         string tokens;
+        protected List<List<string>> cartHistory;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -25,6 +26,7 @@ namespace Moonlystic
                 else
                 {
                     getPersonalData();
+                    cartHistory = getCartHistory();
                 }
             }
         }
@@ -116,6 +118,32 @@ namespace Moonlystic
         protected void btnSave_Click(object sender, EventArgs e)
         {
             updatePersonalData();
+        }
+
+        protected List<List<string>> getCartHistory()
+        {
+            List<List<string>> cartHistory = new List<List<string>>();
+
+            string connStr = ConfigurationManager.ConnectionStrings["AvenueConnectionString"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connStr);
+            conn.Open();
+
+            string sql = "SELECT Product.productName, Cart.orderAmount, Cart.cartPrice FROM Cart INNER JOIN Product ON Cart.productId=Product.productId WHERE userId=@userId AND hasPaid=1";
+            SqlCommand comm = new SqlCommand(sql, conn);
+            comm.Parameters.AddWithValue("@userId", Session["id"]);
+
+            SqlDataReader reader = comm.ExecuteReader();
+
+            while (reader.Read() == true)
+            {
+                cartHistory.Add(new List<string> { reader["productName"].ToString(), reader["orderAmount"].ToString(), reader["cartPrice"].ToString() });
+            }
+
+
+            reader.Close();
+            conn.Close();
+
+            return cartHistory;
         }
     }
 }

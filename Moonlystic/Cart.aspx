@@ -23,20 +23,6 @@
             </tr>
             <% } %>
             <tr>
-                <th scope="col">1</th>
-                <td><img src="Assets/gray.jpg" style="width:150px;height:150px;"/></td>
-                <td><p>Neko</p></td>
-                <td><p>1</p></td>
-                <td><p>RM10.00</p></td>
-            </tr>
-            <tr>
-                <th scope="col">2</th>
-                <td><img src="Assets/gray.jpg" style="width:150px;height:150px;"/></td>
-                <td><p>Catto</p></td>
-                <td><p>1</p></td>
-                <td><p>RM11.00</p></td>
-            </tr>
-            <tr>
                 <th scope="col">3</th>
                 <td colspan="3">Total:</td>
                 <td>RM21.00</td>

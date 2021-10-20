@@ -65,8 +65,25 @@
                 </form>
             </div>
         </div>
-        <div style="height:200px; background-color:antiquewhite;">
-            <p>Hello History cart</p>
+        <div style="background-color:antiquewhite;">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% foreach (List<string> carthistory in cartHistory) { %>
+                    <tr>
+                        <td><% =carthistory[0] %></td>
+                        <td><% =carthistory[1] %></td>
+                        <td><% =carthistory[2] %></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
         </div>
     </div>
 </asp:Content>
