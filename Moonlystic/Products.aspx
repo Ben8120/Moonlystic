@@ -9,7 +9,7 @@
         <div class="col-md-10">
             <div class="row">
                 <% foreach (List<string> product in productInfo) { %>
-                <div class="card m-1 col-sm" style="width: 18rem;">
+                <div class="card m-2 col-sm grow" style="width: 16rem; display: inline-block;">
                         <img class="card-img-top" src="Assets/gray.jpg" alt="Image Name" />
                         <div class="card-body">
                             <h5 class="card-title"><% =product[0] %></h5>
@@ -19,50 +19,7 @@
                         </div>
                     </div>
                 <% } %>
-                <div class="card m-1 col-sm" style="width: 18rem;">
-                    <img class="card-img-top" src="Assets/gray.jpg" alt="Image Name" />
-                    <div class="card-body">
-                        <h5 class="card-title">Product Name</h5>
-                        <p class="card-text">Product Price</p>
-                        <a href="#" class="btn btn-outline-warning">Buy</a>
-                    </div>
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="card m-1 col-md" style="width: 18rem;">
-                    <img class="card-img-top" src="Assets/gray.jpg" alt="Image Name" />
-                    <div class="card-body">
-                        <h5 class="card-title">Card Title</h5>
-                        <p class="card-text">Testing of cards</p>
-                        <a href="#" class="btn btn-primary">Button</a>
-                    </div>
-                </div>
-                <div class="card m-1 col-md" style="width: 18rem;">
-                    <img class="card-img-top" src="Assets/gray.jpg" alt="Image Name" />
-                    <div class="card-body">
-                        <h5 class="card-title">Card Title</h5>
-                        <p class="card-text">Testing of cards</p>
-                        <a href="#" class="btn btn-primary">Button</a>
-                    </div>
-                </div>
-                <div class="card m-1 col-md" style="width: 18rem;">
-                    <img class="card-img-top" src="Assets/gray.jpg" alt="Image Name" />
-                    <div class="card-body">
-                        <h5 class="card-title">Card Title</h5>
-                        <p class="card-text">Testing of cards</p>
-                        <a href="#" class="btn btn-primary">Button</a>
-                    </div>
-                </div>
-                <div class="card m-1 col-md" style="width: 18rem;">
-                    <img class="card-img-top" src="Assets/gray.jpg" alt="Image Name" />
-                    <div class="card-body">
-                        <h5 class="card-title">Card Title</h5>
-                        <p class="card-text">Testing of cards</p>
-                        <a href="#" class="btn btn-primary">Button</a>
-                    </div>
-                </div>
-            </div>        
         </div>
     </div>
 </asp:Content>
