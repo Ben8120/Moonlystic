@@ -42,17 +42,24 @@ namespace Moonlystic
 
         protected void btnPay_Click(object sender, EventArgs e)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["AvenueConnectionString"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connStr);
-            conn.Open();
+            if (Session["id"] != null)
+            {
+                string connStr = ConfigurationManager.ConnectionStrings["AvenueConnectionString"].ConnectionString;
+                SqlConnection conn = new SqlConnection(connStr);
+                conn.Open();
 
-            string sqlquery = "UPDATE Cart SET hasPaid=1 WHERE userId=@userId";
-            SqlCommand comm = new SqlCommand(sqlquery, conn);
-            comm.Parameters.AddWithValue("@userId", Session["id"]);
+                string sqlquery = "UPDATE Cart SET hasPaid=1 WHERE userId=@userId";
+                SqlCommand comm = new SqlCommand(sqlquery, conn);
+                comm.Parameters.AddWithValue("@userId", Session["id"]);
 
-            comm.ExecuteNonQuery();
+                comm.ExecuteNonQuery();
 
-            conn.Close();
+                conn.Close();
+            } else
+            {
+                Response.Redirect("SignIn.aspx");
+            }
+            
         }
     }
 }

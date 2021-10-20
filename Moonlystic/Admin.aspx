@@ -183,6 +183,21 @@
 
                 <asp:Panel ID="PanelManageOrders" runat="server">
                     <p>Manage Orders Panel</p>
+                    <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="cartId" DataSourceID="sqlCart">
+                        <Columns>
+                            <asp:BoundField DataField="cartId" HeaderText="cartId" InsertVisible="False" ReadOnly="True" SortExpression="cartId" />
+                            <asp:BoundField DataField="productId" HeaderText="productId" SortExpression="productId" />
+                            <asp:BoundField DataField="userId" HeaderText="userId" SortExpression="userId" />
+                            <asp:BoundField DataField="orderAmount" HeaderText="orderAmount" SortExpression="orderAmount" />
+                            <asp:CheckBoxField DataField="hasPaid" HeaderText="hasPaid" SortExpression="hasPaid" />
+                            <asp:BoundField DataField="cartPrice" HeaderText="cartPrice" SortExpression="cartPrice" />
+                        </Columns>
+                    </asp:GridView>
+
+                    <asp:SqlDataSource ID="sqlCart" runat="server" 
+                        ConnectionString="<%$ ConnectionStrings:AvenueConnectionString %>" 
+                        SelectCommand="SELECT * FROM [Cart]"></asp:SqlDataSource>
+
                 </asp:Panel>
 
 
