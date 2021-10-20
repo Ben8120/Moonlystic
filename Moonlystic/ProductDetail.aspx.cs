@@ -73,6 +73,18 @@ namespace Moonlystic
 
         protected void btnCart_Click(object sender, EventArgs e)
         {
+            addToCart();
+            Response.Redirect("Products");
+        }
+
+        protected void btnBuy_Click(object sender, EventArgs e)
+        {
+            addToCart();
+            Response.Redirect("Payment.aspx");
+        }
+
+        protected void addToCart()
+        {
             if (Session["id"] != null)
             {
                 string connStr = ConfigurationManager.ConnectionStrings["AvenueConnectionString"].ConnectionString;
@@ -92,11 +104,12 @@ namespace Moonlystic
                 conn.Close();
 
                 Response.Redirect("Products.aspx");
-            } else
+            }
+            else
             {
                 Response.Write("Need to Log In First!");
+                Response.Redirect("SignIn.aspx");
             }
-            
         }
     }
 }

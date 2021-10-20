@@ -10,26 +10,13 @@
             </tr>
         </thead>
         <tbody>
+            <% foreach (List<string> cartdata in cartData) { %>
             <tr>
-                <td>Cats</td>
-                <td>100</td>
-                <td>RM10.00</td>
+                <td><p><% =cartdata[0] %></p></td>
+                <td><% =cartdata[1] %></td>
+                <td>RM<% =cartdata[2] %></td>
             </tr>
-            <tr>
-                <td>Cats</td>
-                <td>100</td>
-                <td>RM10.00</td>
-            </tr>
-            <tr>
-                <td>Cats</td>
-                <td>100</td>
-                <td>RM10.00</td>
-            </tr>
-            <tr>
-                <td>Cats</td>
-                <td>100</td>
-                <td>RM10.00</td>
-            </tr>
+            <% } %>
             <tr>
                 <td colspan="2">Subtotal: </td>
                 <td>RM10.00</td>
