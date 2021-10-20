@@ -33,8 +33,18 @@ namespace Moonlystic
             {
                 loadCatNames.Add(reader["categoryName"].ToString());
             }
+
+            reader.Close();
+            conn.Close();
             
             return loadCatNames;
+        }
+
+        protected void btn_redirect_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Products.aspx");
+            //get the id of the category and put it in session["cat"]
+            //but idk how for now
         }
     }
 }

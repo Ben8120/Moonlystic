@@ -8,7 +8,7 @@
             <img class="card-img-top" src="Assets/gray.jpg" alt="Card image cap">
             <div class="card-body">
                 <p class="card-text"><% =catName %></p>
-                <asp:Button ID="Button1" runat="server" Text="Button" />
+                <asp:Button ID="btn_redirect" runat="server" Text="Button" OnClick="btn_redirect_Click" />
             </div>
         </div>
         <% } %>
