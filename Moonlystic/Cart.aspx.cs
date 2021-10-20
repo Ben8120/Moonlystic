@@ -30,7 +30,7 @@ namespace Moonlystic
             SqlConnection conn = new SqlConnection(connStr);
             conn.Open();
 
-            string sqlquery = "SELECT cartId, productId FROM Cart WHERE userId=@id";
+            string sqlquery = "SELECT Cart.cartId, Cart.productId, Product.productName FROM Cart INNER JOIN Product ON Cart.productId=Product.productName WHERE userId=@id";
             SqlCommand comm = new SqlCommand(sqlquery, conn);
             comm.Parameters.AddWithValue("@userId", Session["id"]);
 
