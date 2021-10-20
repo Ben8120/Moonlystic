@@ -21,25 +21,19 @@ namespace Moonlystic
         {
             List<string> loadCatNames = new List<string>();
 
-            if (!IsPostBack)
+            string connStr = ConfigurationManager.ConnectionStrings["AvenueConnectionString"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connStr);
+            conn.Open();
+
+            string sqlquery = "SELECT * FROM Category ";
+            SqlCommand comm = new SqlCommand(sqlquery, conn);
+
+            SqlDataReader reader = comm.ExecuteReader();
+            while (reader.Read() == true)
             {
-                string connStr = ConfigurationManager.ConnectionStrings["AvenueConnectionString"].ConnectionString;
-                SqlConnection conn = new SqlConnection(connStr);
-                conn.Open();
-
-                string sqlquery = "SELECT * FROM Category ";
-                SqlCommand comm = new SqlCommand(sqlquery, conn);
-
-                SqlDataReader reader = comm.ExecuteReader();
-                if (reader.Read() == true)
-                {
-                    loadCatNames.Add(reader["categoryName"].ToString());
-                } else
-                {
-                    //response.redirect
-                }
+                loadCatNames.Add(reader["categoryName"].ToString());
             }
-
+            
             return loadCatNames;
         }
     }
