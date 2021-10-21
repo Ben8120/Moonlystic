@@ -9,9 +9,11 @@ namespace Moonlystic
 {
     public partial class _Default : Page
     {
+        protected string carModal;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            var component = new Components();
+            carModal = component.carouselModal("Test Title", "Testing Description");
         }
     }
 }

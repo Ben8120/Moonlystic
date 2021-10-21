@@ -178,6 +178,22 @@
 
                 <asp:Panel ID="PanelManageHome" runat="server">
                     <p>Manage Home Page Panel</p>
+                    <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataKeyNames="carId" DataSourceID="sqlCar">
+                        <Columns>
+                            <asp:BoundField DataField="carId" HeaderText="carId" InsertVisible="False" ReadOnly="True" SortExpression="carId" />
+                            <asp:BoundField DataField="carTitle" HeaderText="carTitle" SortExpression="carTitle" />
+                            <asp:BoundField DataField="carDesc" HeaderText="carDesc" SortExpression="carDesc" />
+                            <asp:BoundField DataField="carBanner" HeaderText="carBanner" SortExpression="carBanner" />
+                            <asp:BoundField DataField="carShow" HeaderText="carShow" SortExpression="carShow" />
+                        </Columns>
+                    </asp:GridView>
+                    <asp:SqlDataSource ID="sqlCar" runat="server" 
+                        ConnectionString="<%$ ConnectionStrings:AvenueConnectionString %>" 
+                        SelectCommand="SELECT * FROM [Carousel]"></asp:SqlDataSource>
+                    <asp:TextBox ID="txtCarTitle" runat="server" placeholder="carousel title"></asp:TextBox>
+                    <asp:TextBox ID="txtCarDesc" runat="server" placeholder="carousel description"></asp:TextBox>
+                    <asp:FileUpload ID="fuBanner" runat="server" />
+                    <asp:CheckBox ID="chkCarShow" runat="server" />
                 </asp:Panel>
 
 
