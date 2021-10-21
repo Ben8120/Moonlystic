@@ -116,14 +116,12 @@ namespace Moonlystic
 
         protected void btnAddFaq_Click(object sender, EventArgs e)
         {
-            if (chkFaqVisible.Checked)
-            {
-                faqVisible = true;
-            } else
-            {
-                faqVisible = false;
-            }
             sqlFaq.Insert();
+        }
+
+        protected void btnAddCar_Click(object sender, EventArgs e)
+        {
+            sqlCar.Insert();
         }
     }
 }

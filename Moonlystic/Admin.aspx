@@ -187,13 +187,23 @@
                             <asp:BoundField DataField="carShow" HeaderText="carShow" SortExpression="carShow" />
                         </Columns>
                     </asp:GridView>
+
                     <asp:SqlDataSource ID="sqlCar" runat="server" 
                         ConnectionString="<%$ ConnectionStrings:AvenueConnectionString %>" 
-                        SelectCommand="SELECT * FROM [Carousel]"></asp:SqlDataSource>
+                        SelectCommand="SELECT * FROM [Carousel]"
+                        InsertCommand="INSERT INTO [Carousel] ([carTitle], [carDesc], [carShow]) VALUES (@carTitle, @carDesc, @carShow)">
+                        <InsertParameters>
+                            <asp:ControlParameter ControlID="txtCarTitle" Name="carTitle" Type="string" />
+                            <asp:ControlParameter ControlID="txtcarDesc" Name="carDesc" Type="string" />
+                            <asp:ControlParameter ControlID="chkCarShow" Name="carShow" Type="boolean" />
+                        </InsertParameters>
+                    </asp:SqlDataSource>
+
                     <asp:TextBox ID="txtCarTitle" runat="server" placeholder="carousel title"></asp:TextBox>
                     <asp:TextBox ID="txtCarDesc" runat="server" placeholder="carousel description"></asp:TextBox>
                     <asp:FileUpload ID="fuBanner" runat="server" />
                     <asp:CheckBox ID="chkCarShow" runat="server" />
+                    <asp:Button ID="btnAddCar" runat="server" Text="Add" OnClick="btnAddCar_Click" />
                 </asp:Panel>
 
 

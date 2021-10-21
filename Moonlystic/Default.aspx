@@ -3,6 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <% =carModal %>
+    <a href="*" data-toggle="modal" data-target="#myModal">Open Modal</a>
     <h1>Home Page</h1>
     <div class="container-fluid">
 
