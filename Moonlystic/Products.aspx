@@ -4,7 +4,9 @@
     <p>Product cards in here</p>
     <div class="row">
         <div class="col-md-2">
-            <p>load categories here</p>
+            <% foreach (string category in categories) { %>
+            <asp:RadioButton ID="rb" runat="server" GroupName="categories" Text=""/><% =category %><br />
+            <% } %>
         </div>
         <div class="col-md-10">
             <div class="row">

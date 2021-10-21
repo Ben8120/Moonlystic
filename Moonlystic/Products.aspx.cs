@@ -12,9 +12,11 @@ namespace Moonlystic
     public partial class Products : System.Web.UI.Page
     {
         protected List<List<String>> productInfo;
+        protected List<String> categories;
         protected void Page_Load(object sender, EventArgs e)
         {
             productInfo = getProductInfo();
+            categories = getCategories();
             /* for testing only
             foreach (List<string> product in productInfo)
             {
@@ -59,6 +61,30 @@ namespace Moonlystic
             }
 
             return getProductInfos;
+        }
+
+        protected List<string> getCategories()
+        {
+            List<string> categories = new List<string>();
+
+            string connStr = ConfigurationManager.ConnectionStrings["AvenueConnectionString"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connStr);
+            conn.Open();
+
+            string sqlquery = "SELECT categoryName FROM Category ";
+            SqlCommand comm = new SqlCommand(sqlquery, conn);
+
+            SqlDataReader reader = comm.ExecuteReader();
+            while (reader.Read())
+            {
+                categories.Add(reader["categoryName"].ToString());
+
+            }
+
+            reader.Close();
+            conn.Close();
+
+            return categories;
         }
 
         protected void btnBuy_Click(object sender, EventArgs e)
