@@ -19,7 +19,7 @@
             <% } %>
             <tr>
                 <td colspan="2">Subtotal: </td>
-                <td>RM10.00</td>
+                <td>RM<% =totalPrice %></td>
             </tr>
         </tbody>
     </table>

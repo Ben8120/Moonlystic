@@ -25,7 +25,7 @@
             <tr>
                 <th scope="col">3</th>
                 <td colspan="3">Total:</td>
-                <td>RM21.00</td>
+                <td>RM<% =totalPrice %></td>
             </tr>
         </tbody>
     </table>

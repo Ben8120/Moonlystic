@@ -12,10 +12,12 @@ namespace Moonlystic
     public partial class Cart : System.Web.UI.Page
     {
         protected List<List<string>> cartInfo;
+        protected decimal totalPrice;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["id"] != null)
             {
+                totalPrice = 0;
                 cartInfo = getCartItemData();
             } else
             {
@@ -42,6 +44,7 @@ namespace Moonlystic
             {
                 //cartIds.Add(new List<int> { int.Parse(reader["cartId"].ToString()), int.Parse(reader["productId"].ToString()) });
                 cartInfo.Add(new List<string> { reader["productName"].ToString(), reader["orderAmount"].ToString(), reader["cartPrice"].ToString() });
+                totalPrice = totalPrice + decimal.Parse(reader["cartPrice"].ToString());
             }
 
             reader.Close();
