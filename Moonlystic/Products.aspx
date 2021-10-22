@@ -10,18 +10,7 @@
         </div>
         <div class="col-md-10">
             <div class="row">
-                <% foreach (List<string> product in productInfo) { %>
-                    <div class="card m-2 col-sm grow" style="width: 16rem; display: inline-block;">
-                        <img class="card-img-top" src="Assets/gray.jpg" alt="Image Name" />
-                        <div class="card-body">
-                            <h5 class="card-title"><% =product[0] %></h5>
-                            <p class="card-text">RM<% =product[1] %></p>
-                            <p style="display:none"><% =product[2] %></p>
-                            <asp:Button ID="btnBuy" runat="server" Text="Buy" class="btn btn-outline-warning" OnClick="btnBuy_Click" />
-                        </div>
-                    </div>
-                <% } %>
-
+                <% =loadProductList() %>
             </div>
         </div>
         </div>

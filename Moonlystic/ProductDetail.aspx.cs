@@ -14,20 +14,19 @@ namespace Moonlystic
         protected string productName;
         protected string productDesc;
         protected string productPrice;
-
+        protected static int pId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            //{
-                if (Session["productId"] != null)
-                {
-                    getProductDetail();
-                }
-                else
-                {
-                    Response.Redirect("Products.aspx");
-                }
-            //}
+            pId = 0;
+            pId = Convert.ToInt16(Request.QueryString["id"]);
+            if (pId == 0)
+            {
+                Response.Redirect("Products.aspx");
+            }
+            else
+            {
+                getProductDetail();
+            }
         }
 
         protected void getProductDetail()
@@ -38,7 +37,7 @@ namespace Moonlystic
 
             string sqlquery = "SELECT * FROM Product WHERE productId=@id ";
             SqlCommand comm = new SqlCommand(sqlquery, conn);
-            comm.Parameters.AddWithValue("@id", Session["productId"]);
+            comm.Parameters.AddWithValue("@id", pId);
 
             SqlDataReader reader = comm.ExecuteReader();
             if (reader.Read() == true)

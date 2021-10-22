@@ -63,6 +63,18 @@ namespace Moonlystic
             return getProductInfos;
         }
 
+        protected string loadProductList()
+        {
+            Components components = new Components();
+            string data = "";
+
+            foreach (List<string> product in productInfo)
+            {
+                data += components.productsCard(product[0], product[1], product[2]);
+            }
+            return data;
+        }
+
         protected List<string> getCategories()
         {
             List<string> categories = new List<string>();
@@ -89,6 +101,7 @@ namespace Moonlystic
 
         protected void btnBuy_Click(object sender, EventArgs e)
         {
+            Page.DataBind();
             Session["productId"] = 1;
             Response.Redirect("ProductDetail.aspx");
         }
