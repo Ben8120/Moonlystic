@@ -15,6 +15,7 @@ namespace Moonlystic
         protected string productDesc;
         protected string productPrice;
         protected static int pId;
+        protected decimal cartPrice;
         protected void Page_Load(object sender, EventArgs e)
         {
             pId = 0;
@@ -73,7 +74,7 @@ namespace Moonlystic
         protected void btnCart_Click(object sender, EventArgs e)
         {
             addToCart();
-            Response.Redirect("Products");
+            Response.Redirect("Products.aspx");
         }
 
         protected void btnBuy_Click(object sender, EventArgs e)
@@ -86,17 +87,19 @@ namespace Moonlystic
         {
             if (Session["id"] != null)
             {
+                //cart price to equal to orderamount(parsed to decimal) multiplied by productprice
+
                 string connStr = ConfigurationManager.ConnectionStrings["AvenueConnectionString"].ConnectionString;
                 SqlConnection conn = new SqlConnection(connStr);
                 conn.Open();
 
                 string sqlquery = "INSERT INTO Cart VALUES (@productId, @userId, @orderAmount, @hasPaid, @cartPrice)";
                 SqlCommand comm = new SqlCommand(sqlquery, conn);
-                comm.Parameters.AddWithValue("@productId", Session["productId"]);
+                comm.Parameters.AddWithValue("@productId", pId);
                 comm.Parameters.AddWithValue("@userId", Session["id"]);
                 comm.Parameters.AddWithValue("@orderAmount", int.Parse(txtQuantity.Text));
                 comm.Parameters.AddWithValue("@hasPaid", false);
-                comm.Parameters.AddWithValue("@cartPrice", decimal.Parse(productPrice));
+                comm.Parameters.AddWithValue("@cartPrice", decimal.Parse(productPrice) * decimal.Parse(txtQuantity.Text));
 
                 comm.ExecuteNonQuery();
 

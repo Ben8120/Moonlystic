@@ -47,7 +47,7 @@ namespace Moonlystic
 
             foreach (List<string> cateName in catNames)
             {
-                data += component.categoryCard(cateName[0]);
+                data += component.categoryCard(cateName[0], cateName[1]);
             }
 
             return data;
