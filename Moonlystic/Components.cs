@@ -61,9 +61,9 @@ namespace Moonlystic
             "<div class=\"card h-scroll category-style grow m-3\">" +
                 "<model-viewer alt=\"Some alt text\" src=\"banana.glb\" ar ar-modes=\"webxr scene-viewer quick-look\" environment-image=\"shared-assets/environments/moon_1k.hdr\" poster=\"assets/NeilArmstrong.webp\" seamless-poster shadow-intensity=\"1\" camera-controls></model-viewer>" +
                     "<div class=\"card-body\">" +
-                "<p class=\"card-text\">" + name + "</p>" +
-                "<asp:Button ID=\"btn_redirect\" runat=\"server\" Text=\"Button\" OnClick=\"btn_redirect_Click\" />" +
-            "</div></div>";
+                        "<p class=\"card-text\"><a href=\"Products.aspx\">" + name + "</a></p>" +
+                        "<asp:Button ID=\"btn_redirect\" runat=\"server\" Text=\"Button\" OnClick=\"btn_redirect_Click\" />" +
+                    "</div></div>";
 
             return cat;
         }

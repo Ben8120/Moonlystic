@@ -8,7 +8,7 @@
         <div class="card h-scroll" style="width: 18rem;">
             <img class="card-img-top" src="Assets/gray.jpg" alt="Card image cap">
             <div class="card-body">
-                <p class="card-text">lorem</p>
+                <p class="card-text"><a href="Products.aspx">lorem</a></p>
             </div>
         </div>
         <!--below are just for demonstration purposes, remove all bottom ones for these-->
