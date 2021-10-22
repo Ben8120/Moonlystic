@@ -11,15 +11,15 @@ namespace Moonlystic
 {
     public partial class Category : System.Web.UI.Page
     {
-        public List<string> catNames = new List<string>();
+        public List<List<string>> catNames = new List<List<string>>();
         protected void Page_Load(object sender, EventArgs e)
         {
             catNames = loadCatName();
         }
 
-        protected List<String> loadCatName()
+        protected List<List<string>> loadCatName()
         {
-            List<string> loadCatNames = new List<string>();
+            List<List<string>> loadCatNames = new List<List<string>>();
 
             string connStr = ConfigurationManager.ConnectionStrings["AvenueConnectionString"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
@@ -31,13 +31,26 @@ namespace Moonlystic
             SqlDataReader reader = comm.ExecuteReader();
             while (reader.Read() == true)
             {
-                loadCatNames.Add(reader["categoryName"].ToString());
+                loadCatNames.Add( new List<string> { reader["categoryName"].ToString(), reader["categoryId"].ToString() });
             }
 
             reader.Close();
             conn.Close();
             
             return loadCatNames;
+        }
+
+        protected string loadCatList()
+        {
+            Components component = new Components();
+            string data = "";
+
+            foreach (List<string> cateName in catNames)
+            {
+                data += component.categoryCard(cateName[0]);
+            }
+
+            return data;
         }
 
         protected void btn_redirect_Click(object sender, EventArgs e)

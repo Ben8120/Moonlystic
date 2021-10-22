@@ -16,6 +16,10 @@
     display: inline-block;
 }
 
+.category-style {
+    width: 18rem;
+}
+
 /*grow animation when hovered*/
 .grow {
     transition: all .2s ease-in-out;
