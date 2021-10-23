@@ -3,12 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <% =carModal %>
-    <a href="*" data-toggle="modal" data-target="#myModal">Open Modal</a>
-    <h1>Home Page</h1>
-    <div class="container-fluid">
-
-
-    </div>
+    <a href="*" data-toggle="modal" data-target="#myModal">Open Modal</a>    
     <div class = "d-flex justify-content-center">
         <div id = "carouselwithIndicators" class = "carousel slide w-75" data-ride = "carousel">
             <ol class = "carousel-indicators">
@@ -19,18 +14,18 @@
             
             <div class =" carousel-inner">
                 <div class = "carousel-item active">
-                    <img class = "d-block w-100" 
+                    <img class = "d-block w-100 h-100" 
                         src = "https://www.tutorialspoint.com/bootstrap/images/slide1.png" 
                         alt = "First slide">
                 </div>
                
                 <div class = "carousel-item">
-                    <img class = "d-block w-100" 
+                    <img class = "d-block w-100 h-100"  
                         src = "https://www.tutorialspoint.com/bootstrap/images/slide2.png" 
                         alt = "Second slide">
                 </div>
                 <div class = "carousel-item">
-                    <img class = "d-block w-100" 
+                    <img class = "d-block w-100 h-100" 
                         src = "https://www.tutorialspoint.com/bootstrap/images/slide3.png" 
                         alt = "Third slide">
                 </div>
@@ -46,7 +41,7 @@
                 <span class = "sr-only">Next</span>
             </a>
         </div>
-      </div>
+    </div>
 
     <img src="Assets/gray.jpg" class="w-25 m-2" style="height:200px;"/>
 
