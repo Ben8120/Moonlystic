@@ -17,7 +17,7 @@
                             <div class="dollar-div px-3">
                                 <div class="round-div"><i class="fa fa-dollar dollar"></i></div>
                             </div>
-                            <div class="d-flex flex-column text-right mr-2"> <span class="current-balance">Current Balance</span> <span class="amount"><span class="dollar-sign">$</span>1476</span> </div>
+                            <div class="d-flex flex-column text-right mr-2"> <span class="current-balance">Current Balance</span> <span class="amount"><span class="dollar-sign">RM</span><% =Session["balance"] %></span> </div>
                         </div>
                         <div class="recent-border mt-4"> <span class="recent-orders">Recent orders</span> </div>
                         <div class="wishlist-border pt-2"> <span class="wishlist">Wishlist</span> </div>
@@ -26,7 +26,7 @@
                 </div>
             </div>
 
-            <div class="col-md-8 col-sm">
+            <div class="col-md-8 col-sm card">
                 <!--Profile-->
                 <form>
                     <div class="form-row">
@@ -66,7 +66,7 @@
                 </form>
             </div>
         </div>
-        <div style="background-color:antiquewhite;">
+        <div class="card w-100 mt-3">
             <table class="table table-striped">
                 <thead>
                     <tr>
