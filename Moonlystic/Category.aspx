@@ -5,7 +5,7 @@
     <div class="horizontal-scroll p-3">
         <% =loadCatList() %>
         
-        <div class="card h-scroll" style="width: 18rem;">
+        <div class="card h-scroll">
             <img class="card-img-top" src="Assets/gray.jpg" alt="Card image cap">
             <div class="card-body">
                 <p class="card-text"><a href="Products.aspx">lorem</a></p>

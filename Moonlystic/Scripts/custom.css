@@ -46,7 +46,8 @@
 
 /*Profile Card*/
 body {
-    background-color: #eee
+    background: rgb(245,225,240);
+    background: linear-gradient(42deg, rgba(245,225,240,1) 0%, rgba(202,213,240,1) 31%, rgba(201,249,235,1) 100%);
 }
 
 .card {
