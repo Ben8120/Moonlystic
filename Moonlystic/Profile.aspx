@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-4 col-sm">
                 <!--Card goes here-->
-                <div class="container d-flex justify-content-center mt-5">
+                <div class="container d-flex justify-content-center">
                     <div class="card">
                         <div class="top-container"> <img src="<%= image %>" class="img-fluid profile-image" width="70">
                             <div class="ml-3">
