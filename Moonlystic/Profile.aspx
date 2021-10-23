@@ -7,10 +7,10 @@
                 <!--Card goes here-->
                 <div class="container d-flex justify-content-center mt-5">
                     <div class="card">
-                        <div class="top-container"> <img src="https://avatars.dicebear.com/api/big-ears/dgj4jkefc.svg" class="img-fluid profile-image" width="70">
+                        <div class="top-container"> <img src="<%= image %>" class="img-fluid profile-image" width="70">
                             <div class="ml-3">
-                                <h5 class="name">Clarke Jeffery</h5>
-                                <p class="mail">clark@zmail.com</p>
+                                <h5 class="name"><% =Session["firstName"].ToString() + " " +Session["lastName"].ToString() %></h5>
+                                <p class="mail"><% =Session["email"] %></p>
                             </div>
                         </div>
                         <div class="middle-container d-flex justify-content-between align-items-center mt-3 p-2">

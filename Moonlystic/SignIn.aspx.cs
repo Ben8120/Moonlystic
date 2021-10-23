@@ -36,6 +36,7 @@ namespace Moonlystic
                 Session["id"] = reader["userId"];
                 Session["firstName"] = reader["firstName"];
                 Session["lastName"] = reader["lastName"];
+                Session["email"] = reader["email"];
                 //Add as go
 
                 Response.Redirect("Default.aspx");

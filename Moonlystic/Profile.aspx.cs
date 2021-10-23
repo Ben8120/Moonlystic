@@ -15,6 +15,7 @@ namespace Moonlystic
         string balance;
         string tokens;
         protected List<List<string>> cartHistory;
+        protected string image;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -25,6 +26,7 @@ namespace Moonlystic
                 }
                 else
                 {
+                    image = getImage();
                     getPersonalData();
                     cartHistory = getCartHistory();
                 }
@@ -144,6 +146,15 @@ namespace Moonlystic
             conn.Close();
 
             return cartHistory;
+        }
+
+        protected string getImage()
+        {
+            string imageName="";
+
+            imageName += "https://avatars.dicebear.com/api/big-ears/" + Session["firstName"].ToString() + Session["lastName"].ToString() + ".svg";
+
+            return imageName;
         }
     }
 }
