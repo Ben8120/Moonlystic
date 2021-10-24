@@ -1,31 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="Moonlystic.Profile" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+
     <div class="container mt-3">
         <div class="row">
             <div class="col-md-4 col-sm">
                 <!--Card goes here-->
-                <div class="d-flex justify-content-center">
-                    <div class="card">
-                        <div class="top-container"> <img src="<%= image %>" class="img-fluid profile-image" width="70">
-                            <div class="ml-3">
-                                <h5 class="name"><% =Session["firstName"].ToString() + " " +Session["lastName"].ToString() %></h5>
-                                <p class="mail"><% =Session["userName"] %></p>
-                            </div>
-                        </div>
-                        <div class="middle-container d-flex justify-content-between align-items-center mt-3 p-2">
-                            <div class="dollar-div px-3">
-                                <div class="round-div"><i class="fa fa-dollar dollar"></i></div>
-                            </div>
-                            <div class="d-flex flex-column text-right mr-2"> <span class="current-balance">Current Balance</span> <span class="amount"><span class="dollar-sign">RM</span><% =Session["balance"] %></span> </div>
-                        </div>
-                        <div class="middle-container d-flex justify-content-between align-items-center mt-3 p-2">
-                            <div class="dollar-div px-3">
-                                <div class="round-div"><i class="fa fa-dollar dollar"></i></div>
-                            </div>
-                            <div class="d-flex flex-column text-right mr-2"> <span class="current-balance">Tokens</span> <span class="amount"><span class="dollar-sign">x </span><% =Session["token"] %></span> </div>
-                        </div>
-                    </div>
-                </div>
+                <% =moonCardComponent %>
                 <!--Card ends here-->
                 <div class="m-3">
                     <asp:Button ID="btnReload" runat="server" Text="Reload" class="btn-block btn-info" style="border-radius:8px;"/>

@@ -27,21 +27,20 @@
     </div>
     <div class="row">
         <div class="col-6">
-            <div class="grow my-card" style="max-height:200px; max-width:400px;">
-                <p>Moon Card</p>
+            <div class="grow mx-auto" style="max-height:320px; max-width:320px;">
+                <% =moonCardComponent %>
             </div>
             <asp:Button ID="btnMy" runat="server" Text="Moon" OnClick="btnMy_Click"/>
         </div>
         <div class="col-6">
-            <div class="grow" style="max-height:200px; max-width:400px;">
-                <img src="Assets/bank-card.png" style="max-height:200px; max-width:400px;"/>
+            <div class="grow mx-auto" style="max-height:320px; max-width:320px;">
+                <img src="Assets/bank-card.png" style="max-height:320px; max-width:320px;"/>
             </div>
             <asp:Button ID="btnBank" runat="server" Text="Bank" OnClick="btnBank_Click" />
         </div>
     </div>
     <asp:Panel ID="panelMY" runat="server">
         <h3>Panel for Moon Card</h3>
-        <p>The User Card Here :( (copy from Profile page that one)</p>
     </asp:Panel>
     <asp:Panel ID="panelBank" runat="server" Visible="false">
         <h3>Panel for Bank Card</h3>

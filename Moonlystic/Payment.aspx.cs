@@ -13,12 +13,14 @@ namespace Moonlystic
     {
         protected List<List<string>> cartData;
         protected decimal totalPrice;
+        protected string moonCardComponent;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["id"] != null)
             {
                 totalPrice = 0;
                 cartData = getCartData();
+                moonCardComponent = moonCard();
             } else
             {
                 Response.Redirect("SignIn.aspx");
@@ -95,6 +97,20 @@ namespace Moonlystic
             conn.Close();
 
             return cartData;
+        }
+
+        protected string moonCard()
+        {
+            string mooncard;
+            string image = "https://avatars.dicebear.com/api/big-ears/" + Session["firstName"].ToString() + Session["lastName"].ToString() + ".svg";
+            string name = Session["firstName"].ToString() + " " + Session["lastName"].ToString();
+            string userName = Session["username"].ToString();
+            string balance = Session["balance"].ToString();
+            string token = Session["token"].ToString();
+
+            Components component = new Components();
+            mooncard = component.moonCard(image, name, userName, balance, token);
+            return mooncard;
         }
     }
 }

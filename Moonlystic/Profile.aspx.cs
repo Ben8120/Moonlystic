@@ -16,6 +16,7 @@ namespace Moonlystic
         string tokens;
         protected List<List<string>> cartHistory;
         protected string image;
+        protected string moonCardComponent;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -29,6 +30,7 @@ namespace Moonlystic
                     image = getImage();
                     getPersonalData();
                     cartHistory = getCartHistory();
+                    moonCardComponent = moonCard();
                 }
             }
         }
@@ -155,6 +157,20 @@ namespace Moonlystic
             imageName += "https://avatars.dicebear.com/api/big-ears/" + Session["firstName"].ToString() + Session["lastName"].ToString() + ".svg";
 
             return imageName;
+        }
+
+        protected string moonCard()
+        {
+            string mooncard;
+            string image = getImage();
+            string name = Session["firstName"].ToString() + " " + Session["lastName"].ToString();
+            string userName = Session["username"].ToString();
+            string balance = Session["balance"].ToString();
+            string token = Session["token"].ToString();
+
+            Components component = new Components();
+            mooncard = component.moonCard(image, name, userName, balance, token);
+            return mooncard;
         }
     }
 }
