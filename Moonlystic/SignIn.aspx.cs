@@ -39,6 +39,7 @@ namespace Moonlystic
                 Session["email"] = reader["email"];
                 Session["balance"] = reader["balance"];
                 Session["token"] = reader["gameToken"];
+                Session["userName"] = reader["userName"];
                 //Add as go
 
                 Response.Redirect("Default.aspx");
