@@ -19,9 +19,11 @@
                             </div>
                             <div class="d-flex flex-column text-right mr-2"> <span class="current-balance">Current Balance</span> <span class="amount"><span class="dollar-sign">RM</span><% =Session["balance"] %></span> </div>
                         </div>
-                        <div class="recent-border mt-4"> <span class="recent-orders">Recent orders</span> </div>
-                        <div class="wishlist-border pt-2"> <span class="wishlist">Wishlist</span> </div>
-                        <div class="fashion-studio-border pt-2"> <span class="fashion-studio">Fashion studio</span> </div>
+
+                        <asp:Button ID="btnTopUp" runat="server" Text="Top Up" class="btn btn-outline-info mt-2"/>
+                        <div class="wishlist-border pt-2"> <span class="wishlist">Tokens</span> <p class="float-right">x <% =Session["token"] %></div>
+                        <!-- <div class="fashion-studio-border pt-2"> <span class="fashion-studio">Fashion studio</span> </div> -->
+
                     </div>
                 </div>
             </div>

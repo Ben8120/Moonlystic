@@ -67,4 +67,12 @@
             </div>
         </div>
     </div>
+    <script>
+        const scrollContainer = document.querySelector(".horizontal-scroll");
+
+        scrollContainer.addEventListener("wheel", (evt) => {
+            evt.preventDefault();
+            scrollContainer.scrollLeft += evt.deltaY;
+        });
+    </script>
 </asp:Content>

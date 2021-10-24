@@ -14,6 +14,7 @@ namespace Moonlystic
         protected string productName;
         protected string productDesc;
         protected string productPrice;
+        protected string productDiscount;
         protected static int pId;
         protected decimal cartPrice;
         protected void Page_Load(object sender, EventArgs e)
@@ -46,6 +47,7 @@ namespace Moonlystic
                 productName = reader["productName"].ToString();
                 productDesc = reader["productDesc"].ToString();
                 productPrice = reader["productPrice"].ToString();
+                productDiscount = reader["productDiscount"].ToString();
             }
 
             reader.Close();

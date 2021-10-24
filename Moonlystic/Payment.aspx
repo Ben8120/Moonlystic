@@ -1,38 +1,40 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Payment.aspx.cs" Inherits="Moonlystic.Payment" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Pay for Order</h1>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th scope="col">Product</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% foreach (List<string> cartdata in cartData) { %>
-            <tr>
-                <td><p><% =cartdata[0] %></p></td>
-                <td><% =cartdata[1] %></td>
-                <td>RM<% =cartdata[2] %></td>
-            </tr>
-            <% } %>
-            <tr>
-                <td colspan="2">Subtotal: </td>
-                <td>RM<% =totalPrice %></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="card w-100 mb-3">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Product</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% foreach (List<string> cartdata in cartData) { %>
+                <tr>
+                    <td><p><% =cartdata[0] %></p></td>
+                    <td><% =cartdata[1] %></td>
+                    <td>RM<% =cartdata[2] %></td>
+                </tr>
+                <% } %>
+                <tr>
+                    <td colspan="2">Subtotal: </td>
+                    <td>RM<% =totalPrice %></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <div class="row">
         <div class="col-6">
-            <div class="grow my-card">
+            <div class="grow my-card" style="max-height:200px; max-width:400px;">
                 <p>Moon Card</p>
             </div>
             <asp:Button ID="btnMy" runat="server" Text="Moon" OnClick="btnMy_Click"/>
         </div>
         <div class="col-6">
-            <div class="bank-card grow">
-                <p>Bank Card</p>
+            <div class="grow" style="max-height:200px; max-width:400px;">
+                <img src="Assets/bank-card.png" style="max-height:200px; max-width:400px;"/>
             </div>
             <asp:Button ID="btnBank" runat="server" Text="Bank" OnClick="btnBank_Click" />
         </div>
