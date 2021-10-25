@@ -7,7 +7,7 @@
                 <!--Card goes here-->
                 <% =moonCardComponent %>
                 <!--Card ends here-->
-                <div class="m-3">
+                <div class="container m-3">
                     <asp:Button ID="btnReload" runat="server" Text="Reload" class="btn-block btn-info" style="border-radius:8px;"/>
                 </div>
                 
