@@ -58,7 +58,7 @@ namespace Moonlystic
             string cat;
 
             cat = "" +
-            "<div class=\"card h-scroll category-style grow m-3\">" +
+            "<div class=\"card h-scroll category-style grow m-3 align-middle\">" +
                 "<model-viewer class=\"w-100\" alt=\"Some alt text\" src=\"banana.glb\" ar ar-modes=\"webxr scene-viewer quick-look\" environment-image=\"shared-assets/environments/moon_1k.hdr\" poster=\"assets/NeilArmstrong.webp\" seamless-poster shadow-intensity=\"1\" camera-controls></model-viewer>" +
                     "<div class=\"card-body\">" +
                         "<p class=\"card-text\"><a href=\"Products.aspx?=" + id + "\">" + name + "</a></p>" +

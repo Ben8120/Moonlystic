@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Category.aspx.cs" Inherits="Moonlystic.Category" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="horizontal-scroll p-3">
+    <div class="horizontal-scroll p-3 vh-100">
         <% =loadCatList() %>
         
         <div class="card h-scroll">
