@@ -34,7 +34,9 @@
                         <asp:SqlDataSource ID="sqlCat" runat="server" 
                             ConnectionString="<%$ ConnectionStrings:AvenueConnectionString %>" 
                             SelectCommand="SELECT * FROM [Category]"
-                            InsertCommand="INSERT INTO [Category] ([categoryName]) VALUES (@categoryName)">
+                            InsertCommand="INSERT INTO [Category] ([categoryName]) VALUES (@categoryName)"
+                            UpdateCommand="UPDATE [Category] SET [categoryName] = @categoryName WHERE [categoryId] = @categoryId"
+                            DeleteCommand="DELETE FROM [Category] WHERE [categoryId] = @categoryId">
                             <InsertParameters>
                                 <asp:ControlParameter ControlID="txtCatName" Name="categoryName" Type="String" />
                             </InsertParameters>
@@ -71,7 +73,9 @@
                             ConnectionString="<%$ ConnectionStrings:AvenueConnectionString %>" 
                             SelectCommand="SELECT * FROM [Product]"
                             InsertCommand="INSERT INTO [Product] ([productName], [productDesc], [productPrice], [productAmount], [productDiscount], [productCategory]) 
-                            VALUES (@productName, @productDesc, @productPrice, @productAmount, @productDiscount, @productCategory)">
+                            VALUES (@productName, @productDesc, @productPrice, @productAmount, @productDiscount, @productCategory)"
+                            UpdateCommand="UPDATE [Product] SET [productName]=@productName, [productDesc]=@productDesc, [productPrice]=@productPrice, [productAmount]=@productAmount, [productDiscount]=@productDiscount, [productCategory]=@productCategory WHERE [productId]=@productId"
+                            DeleteCommand="DELETE FROM [Product] WHERE [productId] = @productId">
                             <InsertParameters>
                                 <asp:ControlParameter ControlID="txtProdName" Name="productName" Type="String" />
                                 <asp:ControlParameter ControlID="txtProdDesc" Name="productDesc" Type="String" />
@@ -84,8 +88,8 @@
 
                         <div class="m-2">
                             <asp:TextBox ID="txtprodName" runat="server" placeholder="Product Name" class="m-2"></asp:TextBox>
-                            <asp:TextBox ID="txtprodDesc" runat="server" placeholder="Product Description" class="m-2"></asp:TextBox>
-                            <asp:FileUpload ID="fileProdImg" runat="server" placeholder="Product Image" class="m-2"/>
+                            <asp:FileUpload ID="fileProdImg" runat="server" placeholder="Product Image" class="m-2"/> <br />
+                            <asp:TextBox ID="txtprodDesc" runat="server" placeholder="Product Description" class="m-2" TextMode="MultiLine"></asp:TextBox> <br />
                             <asp:TextBox ID="txtProdPrice" runat="server" placeholder="Product Price" class="m-2"></asp:TextBox>
                             <asp:TextBox ID="txtProdAmount" runat="server" placeholder="Product Amount" class="m-2"></asp:TextBox>
                             <asp:TextBox ID="txtProdDiscount" runat="server" placeholder="Product Discount" class="m-2"></asp:TextBox>
@@ -134,8 +138,10 @@
                         <asp:SqlDataSource ID="sqlUsers" runat="server" 
                             ConnectionString="<%$ ConnectionStrings:AvenueConnectionString %>" 
                             SelectCommand="SELECT * FROM [Users]"
-                            InsertCOmmand="INSERT INTO [Users] ([firstName], [lastName], [userName], [dateOfBirth], [email], [password], [userType], [status], [balance], [gameToken], [checkInDays])
-                            VALUES (@firstName, @lastName, @userName, @dateOfBirth, @email, @password, @userType, @status, @balance, @gameToken, @checkInDays)">
+                            InsertCommand="INSERT INTO [Users] ([firstName], [lastName], [userName], [dateOfBirth], [email], [password], [userType], [status], [balance], [gameToken], [checkInDays])
+                            VALUES (@firstName, @lastName, @userName, @dateOfBirth, @email, @password, @userType, @status, @balance, @gameToken, @checkInDays)"
+                            UpdateCommand="UPDATE [Users] SET [firstName]=@firstName, [lastName]=@lastName, [userName]=@userName, [dateOfBirth]=@dateOfBirth, [email]=@email, [userType]=@userType, [status]=@status, [balance]=@balance, [gameToken]=@gameToken, [checkInDays]=@checkInDays WHERE [userId]=@userId"
+                            DeleteCommand="DELETE FROM [Users] WHERE [userId] = @userId">
 
                             <InsertParameters>
                                 <asp:ControlParameter ControlID="txtFirstName" Name="firstName" Type="String" />
@@ -168,19 +174,21 @@
 
                     <asp:Panel ID="PanelManageFAQ" runat="server">
                         <p>Manage FAQ Panel</p>
-                        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="faqId" DataSourceID="sqlFaq">
+                        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="faqId" DataSourceID="sqlFaq" AutoGenerateDeleteButton="True" AutoGenerateEditButton="True">
                             <Columns>
                                 <asp:BoundField DataField="faqId" HeaderText="faqId" ReadOnly="True" SortExpression="faqId" />
                                 <asp:BoundField DataField="faqTitle" HeaderText="faqTitle" SortExpression="faqTitle" />
                                 <asp:BoundField DataField="faqDesc" HeaderText="faqDesc" SortExpression="faqDesc" />
-                                <asp:BoundField DataField="faqVisible" HeaderText="faqVisible" SortExpression="faqVisible" />
+                                <asp:CheckBoxField DataField="faqVisible" HeaderText="faqVisible" SortExpression="faqVisible" />
                             </Columns>
                         </asp:GridView>
 
                         <asp:SqlDataSource ID="sqlFaq" runat="server" 
                             ConnectionString="<%$ ConnectionStrings:AvenueConnectionString %>" 
                             SelectCommand="SELECT * FROM [Faq]"
-                            InsertCommand="INSERT INTO [Faq] ([faqTitle], [faqDesc], [faqVisible]) VALUES (@faqTitle, @faqDesc, @faqVisible)">
+                            InsertCommand="INSERT INTO [Faq] ([faqTitle], [faqDesc], [faqVisible]) VALUES (@faqTitle, @faqDesc, @faqVisible)"
+                            UpdateCommand="UPDATE [Faq] SET [faqTitle]=@faqTitle, [faqDesc]=@faqDesc, [faqVisible]=@faqVisible WHERE [faqId]=@faqId"
+                            DeleteCommand="DELETE FROM [Faq] WHERE [faqId] = @faqId">
                             <InsertParameters>
                                 <asp:ControlParameter ControlID="txtFaqTitle" Name="faqTitle" Type="String" />
                                 <asp:ControlParameter ControlID="txtFaqDesc" Name="faqDesc" Type="String" />
@@ -188,8 +196,8 @@
 
                             </InsertParameters>
                         </asp:SqlDataSource>
-                        <asp:TextBox ID="txtFaqTitle" runat="server" placeholder="FAQ Title"></asp:TextBox>
-                        <asp:TextBox ID="txtFaqDesc" runat="server" placeholder="FAQ Description"></asp:TextBox> <br />
+                        <asp:TextBox ID="txtFaqTitle" runat="server" placeholder="FAQ Title"></asp:TextBox> <br />
+                        <asp:TextBox ID="txtFaqDesc" runat="server" placeholder="FAQ Description" TextMode="MultiLine"></asp:TextBox> <br />
                         <asp:CheckBox ID="chkFaqVisible" runat="server" value="Visible" Checked="true"/><p>Visible</p> <br />
                         <p><% =faqVisible %></p>
                         <asp:Button ID="btnAddFaq" runat="server" Text="Add FAQ" OnClick="btnAddFaq_Click" />
@@ -198,20 +206,22 @@
 
                     <asp:Panel ID="PanelManageHome" runat="server">
                         <p>Manage Home Page Panel</p>
-                        <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataKeyNames="carId" DataSourceID="sqlCar">
+                        <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataKeyNames="carId" DataSourceID="sqlCar" AutoGenerateDeleteButton="True" AutoGenerateEditButton="True">
                             <Columns>
                                 <asp:BoundField DataField="carId" HeaderText="carId" InsertVisible="False" ReadOnly="True" SortExpression="carId" />
                                 <asp:BoundField DataField="carTitle" HeaderText="carTitle" SortExpression="carTitle" />
                                 <asp:BoundField DataField="carDesc" HeaderText="carDesc" SortExpression="carDesc" />
                                 <asp:BoundField DataField="carBanner" HeaderText="carBanner" SortExpression="carBanner" />
-                                <asp:BoundField DataField="carShow" HeaderText="carShow" SortExpression="carShow" />
+                                <asp:CheckBoxField DataField="carShow" HeaderText="carShow" SortExpression="carShow" />
                             </Columns>
                         </asp:GridView>
 
                         <asp:SqlDataSource ID="sqlCar" runat="server" 
                             ConnectionString="<%$ ConnectionStrings:AvenueConnectionString %>" 
                             SelectCommand="SELECT * FROM [Carousel]"
-                            InsertCommand="INSERT INTO [Carousel] ([carTitle], [carDesc], [carShow]) VALUES (@carTitle, @carDesc, @carShow)">
+                            InsertCommand="INSERT INTO [Carousel] ([carTitle], [carDesc], [carShow]) VALUES (@carTitle, @carDesc, @carShow)"
+                            UpdateCommand="Update [Carousel] SET [carTitle]=@carTitle, [carDesc]=@carDesc, [carShow]=@carShow WHERE [carId]=@carId"
+                            DeleteCommand="DELETE FROM [Carousel] WHERE [carId] = @carId">
                             <InsertParameters>
                                 <asp:ControlParameter ControlID="txtCarTitle" Name="carTitle" Type="string" />
                                 <asp:ControlParameter ControlID="txtcarDesc" Name="carDesc" Type="string" />
@@ -232,7 +242,7 @@
 
                     <asp:Panel ID="PanelManageOrders" runat="server">
                         <p>Manage Orders Panel</p>
-                        <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="cartId" DataSourceID="sqlCart">
+                        <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="cartId" DataSourceID="sqlCart" AutoGenerateDeleteButton="True" AutoGenerateEditButton="True">
                             <Columns>
                                 <asp:BoundField DataField="cartId" HeaderText="cartId" InsertVisible="False" ReadOnly="True" SortExpression="cartId" />
                                 <asp:BoundField DataField="productId" HeaderText="productId" SortExpression="productId" />
@@ -245,7 +255,8 @@
 
                         <asp:SqlDataSource ID="sqlCart" runat="server" 
                             ConnectionString="<%$ ConnectionStrings:AvenueConnectionString %>" 
-                            SelectCommand="SELECT * FROM [Cart]"></asp:SqlDataSource>
+                            SelectCommand="SELECT * FROM [Cart]"
+                            DeleteCommand="DELETE FROM [Cart] WHERE [cartId] = @cartId"></asp:SqlDataSource>
 
                     </asp:Panel>
                 </div>

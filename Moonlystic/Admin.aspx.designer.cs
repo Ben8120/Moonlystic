@@ -159,15 +159,6 @@ namespace Moonlystic
         protected global::System.Web.UI.WebControls.TextBox txtprodName;
 
         /// <summary>
-        /// txtprodDesc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtprodDesc;
-
-        /// <summary>
         /// fileProdImg control.
         /// </summary>
         /// <remarks>
@@ -175,6 +166,15 @@ namespace Moonlystic
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fileProdImg;
+
+        /// <summary>
+        /// txtprodDesc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtprodDesc;
 
         /// <summary>
         /// txtProdPrice control.
