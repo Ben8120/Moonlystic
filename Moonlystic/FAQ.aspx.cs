@@ -48,7 +48,7 @@ namespace Moonlystic
             foreach (List<string> faq in FAQ)
             {
                 accordionFAQ += "" +
-                "<div class=\"card\">" + 
+                "<div class=\"card w-100\">" + 
                     "<div class=\"card-header\" id=\"" + "heading" + i.ToString()+ "\">" +
                         "<h5 class=\"mb-0\">" +
                             "<button class=\"btn btn-link\" type=\"button\" data-toggle=\"collapse\" data-target=\"" + "#collapse" + i.ToString() + "\" aria-expanded=\"true\" aria-controls=\"" + "collapse" + i.ToString() + "\">" +
