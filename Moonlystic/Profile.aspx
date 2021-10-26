@@ -57,6 +57,7 @@
             </div>
         </div>
         <div class="card w-100 mt-3">
+            <h5>To Receive</h5>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -71,6 +72,27 @@
                         <td><% =carthistory[0] %></td>
                         <td><% =carthistory[1] %></td>
                         <td><% =carthistory[2] %></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+        <div class="card w-100 mt-3">
+            <h5>Delivered</h5>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% foreach (List<string> deliveredcarthistory in deliveredCartHistory) { %>
+                    <tr>
+                        <td><% =deliveredcarthistory[0] %></td>
+                        <td><% =deliveredcarthistory[1] %></td>
+                        <td><% =deliveredcarthistory[2] %></td>
                     </tr>
                     <% } %>
                 </tbody>

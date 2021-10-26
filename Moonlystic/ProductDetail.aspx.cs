@@ -95,13 +95,14 @@ namespace Moonlystic
                 SqlConnection conn = new SqlConnection(connStr);
                 conn.Open();
 
-                string sqlquery = "INSERT INTO Cart VALUES (@productId, @userId, @orderAmount, @hasPaid, @cartPrice)";
+                string sqlquery = "INSERT INTO Cart VALUES (@productId, @userId, @orderAmount, @hasPaid, @cartPrice, @hasDelivered)";
                 SqlCommand comm = new SqlCommand(sqlquery, conn);
                 comm.Parameters.AddWithValue("@productId", pId);
                 comm.Parameters.AddWithValue("@userId", Session["id"]);
                 comm.Parameters.AddWithValue("@orderAmount", int.Parse(txtQuantity.Text));
                 comm.Parameters.AddWithValue("@hasPaid", false);
                 comm.Parameters.AddWithValue("@cartPrice", decimal.Parse(productPrice) * decimal.Parse(txtQuantity.Text));
+                comm.Parameters.AddWithValue("@hasDelivered", false);
 
                 comm.ExecuteNonQuery();
 

@@ -250,6 +250,7 @@
                                 <asp:BoundField DataField="orderAmount" HeaderText="orderAmount" SortExpression="orderAmount" />
                                 <asp:CheckBoxField DataField="hasPaid" HeaderText="hasPaid" SortExpression="hasPaid" />
                                 <asp:BoundField DataField="cartPrice" HeaderText="cartPrice" SortExpression="cartPrice" />
+                                <asp:CheckBoxField DataField="hasDelivered" HeaderText="hasDelivered" SortExpression="hasDelivered" />
                             </Columns>
                         </asp:GridView>
 
