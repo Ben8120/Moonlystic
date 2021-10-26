@@ -5,6 +5,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th scope="col">Image</th>
                     <th scope="col">Product</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Total</th>
@@ -13,6 +14,7 @@
             <tbody>
                 <% foreach (List<string> cartdata in cartData) { %>
                 <tr>
+                    <td><img src="Assets/gray.jpg" style="width:50px;height:50px;"/></td>
                     <td><p><% =cartdata[0] %></p></td>
                     <td><% =cartdata[1] %></td>
                     <td>RM<% =cartdata[2] %></td>

@@ -66,6 +66,7 @@ namespace Moonlystic
                 comm.ExecuteNonQuery();
 
                 conn.Close();
+                Response.Redirect("Profile.aspx");
             } else
             {
                 Response.Redirect("SignIn.aspx");

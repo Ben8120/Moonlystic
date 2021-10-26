@@ -61,6 +61,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
+                        <th scope="col">Product Image</th>
                         <th scope="col">Product Name</th>
                         <th scope="col">Amount</th>
                         <th scope="col">Price</th>
@@ -69,6 +70,7 @@
                 <tbody>
                     <% foreach (List<string> carthistory in cartHistory) { %>
                     <tr>
+                        <td><img src="Assets/gray.jpg" style="width:50px;height:50px;"/></td>
                         <td><% =carthistory[0] %></td>
                         <td><% =carthistory[1] %></td>
                         <td><% =carthistory[2] %></td>
@@ -82,6 +84,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
+                        <th scope="col">Product Image</th>
                         <th scope="col">Product Name</th>
                         <th scope="col">Amount</th>
                         <th scope="col">Price</th>
@@ -90,6 +93,7 @@
                 <tbody>
                     <% foreach (List<string> deliveredcarthistory in deliveredCartHistory) { %>
                     <tr>
+                        <td><img src="Assets/gray.jpg" style="width:50px;height:50px;"/></td>
                         <td><% =deliveredcarthistory[0] %></td>
                         <td><% =deliveredcarthistory[1] %></td>
                         <td><% =deliveredcarthistory[2] %></td>

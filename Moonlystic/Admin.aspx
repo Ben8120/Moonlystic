@@ -257,8 +257,9 @@
                         <asp:SqlDataSource ID="sqlCart" runat="server" 
                             ConnectionString="<%$ ConnectionStrings:AvenueConnectionString %>" 
                             SelectCommand="SELECT * FROM [Cart]"
+                            UpdateCommand="UPDATE [Cart] SET [hasDelivered]=@hasDelivered WHERE [cartId]=@cartId"
                             DeleteCommand="DELETE FROM [Cart] WHERE [cartId] = @cartId"></asp:SqlDataSource>
-
+                        
                     </asp:Panel>
                 </div>
 

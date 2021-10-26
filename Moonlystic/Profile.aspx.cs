@@ -23,18 +23,19 @@ namespace Moonlystic
         {
             if (!IsPostBack)
             {
-                if (Session["id"] == null)
-                {
-                    Response.Redirect("SignIn.aspx");
-                }
-                else
-                {
-                    image = getImage();
-                    getPersonalData();
-                    cartHistory = getCartHistory();
-                    deliveredCartHistory = getDeliveredCartHistory();
-                    moonCardComponent = moonCard();
-                }
+                
+            }
+            if (Session["id"] == null)
+            {
+                Response.Redirect("SignIn.aspx");
+            }
+            else
+            {
+                image = getImage();
+                getPersonalData();
+                cartHistory = getCartHistory();
+                deliveredCartHistory = getDeliveredCartHistory();
+                moonCardComponent = moonCard();
             }
         }
 
