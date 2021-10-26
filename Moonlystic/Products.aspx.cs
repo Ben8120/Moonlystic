@@ -13,6 +13,7 @@ namespace Moonlystic
     {
         protected List<List<String>> productInfo;
         protected List<String> categories;
+        public static int cId;
         protected void Page_Load(object sender, EventArgs e)
         {
             productInfo = getProductInfo();
@@ -37,7 +38,15 @@ namespace Moonlystic
                 SqlConnection conn = new SqlConnection(connStr);
                 conn.Open();
 
-                string sqlquery = "SELECT * FROM Product ";
+                string sqlquery; 
+                if (Request.QueryString["cid"] != "" && Request.QueryString["cid"] != null)
+                {
+                    sqlquery = "SELECT * FROM Product WHERE productCategory="+ Convert.ToInt16(Request.QueryString["cid"]); ;
+                } else
+                {
+                    sqlquery = "SELECT * FROM Product ";
+                }
+                
                 SqlCommand comm = new SqlCommand(sqlquery, conn);
 
                 SqlDataReader reader = comm.ExecuteReader();

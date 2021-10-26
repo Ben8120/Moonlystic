@@ -53,14 +53,14 @@ namespace Moonlystic
             return productsCard;
         }
 
-        public string categoryCard(string name, string id)
+        public string categoryCard(string name, string id, string cid)
         {
             string cat;
 
             cat = "" +
             "<div class=\"card h-scroll category-style grow m-3 align-middle\">" +
                 "<model-viewer class=\"w-100\" alt=\"Some alt text\" src=\"burger.glb\" ar ar-modes=\"webxr scene-viewer quick-look\" environment-image=\"shared-assets/environments/moon_1k.hdr\" poster=\"assets/NeilArmstrong.webp\" seamless-poster shadow-intensity=\"1\" camera-controls></model-viewer>" +
-                    "<div class=\"card-body\">" +
+                    "<div class=\"card-body\" onclick=\"location.href = \'Products.aspx?cid=" + cid + "\'; \" style=\"cursor: pointer; \">" +
                         "<p class=\"card-text\"><a href=\"Products.aspx?=" + id + "\">" + name + "</a></p>" +
                         "<asp:Button ID=\"btn_redirect\" runat=\"server\" Text=\"Button\" OnClick=\"btn_redirect_Click\" />" +
                     "</div></div>";

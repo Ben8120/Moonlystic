@@ -31,7 +31,7 @@ namespace Moonlystic
             SqlDataReader reader = comm.ExecuteReader();
             while (reader.Read() == true)
             {
-                loadCatNames.Add( new List<string> { reader["categoryName"].ToString(), reader["categoryId"].ToString() });
+                loadCatNames.Add( new List<string> { reader["categoryName"].ToString(), reader["categoryId"].ToString(), reader["categoryId"].ToString() });
             }
 
             reader.Close();
@@ -47,7 +47,7 @@ namespace Moonlystic
 
             foreach (List<string> cateName in catNames)
             {
-                data += component.categoryCard(cateName[0], cateName[1]);
+                data += component.categoryCard(cateName[0], cateName[1], cateName[2]);
             }
 
             return data;
@@ -55,7 +55,7 @@ namespace Moonlystic
 
         protected void btn_redirect_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Products.aspx");
+            //Response.Redirect("Products.aspx");
             //get the id of the category and put it in session["cat"]
             //but idk how for now
         }
