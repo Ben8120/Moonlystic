@@ -47,7 +47,7 @@ namespace Moonlystic
                 productName = reader["productName"].ToString();
                 productDesc = reader["productDesc"].ToString();
                 productPrice = reader["productPrice"].ToString();
-                productDiscount = reader["productDiscount"].ToString();
+                productDiscount = (decimal.Parse(reader["productPrice"].ToString()) - decimal.Parse(reader["productDiscount"].ToString())).ToString();
             }
 
             reader.Close();
@@ -95,14 +95,15 @@ namespace Moonlystic
                 SqlConnection conn = new SqlConnection(connStr);
                 conn.Open();
 
-                string sqlquery = "INSERT INTO Cart VALUES (@productId, @userId, @orderAmount, @hasPaid, @cartPrice, @hasDelivered)";
+                string sqlquery = "INSERT INTO Cart VALUES (@productId, @userId, @orderAmount, @hasPaid, @cartPrice, @hasDelivered, @orderReview)";
                 SqlCommand comm = new SqlCommand(sqlquery, conn);
                 comm.Parameters.AddWithValue("@productId", pId);
                 comm.Parameters.AddWithValue("@userId", Session["id"]);
                 comm.Parameters.AddWithValue("@orderAmount", int.Parse(txtQuantity.Text));
                 comm.Parameters.AddWithValue("@hasPaid", false);
-                comm.Parameters.AddWithValue("@cartPrice", decimal.Parse(productPrice) * decimal.Parse(txtQuantity.Text));
+                comm.Parameters.AddWithValue("@cartPrice", decimal.Parse(productDiscount) * decimal.Parse(txtQuantity.Text));
                 comm.Parameters.AddWithValue("@hasDelivered", false);
+                comm.Parameters.AddWithValue("@orderReview", "");
 
                 comm.ExecuteNonQuery();
 

@@ -88,6 +88,7 @@
                         <th scope="col">Product Name</th>
                         <th scope="col">Amount</th>
                         <th scope="col">Price</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -97,6 +98,7 @@
                         <td><% =deliveredcarthistory[0] %></td>
                         <td><% =deliveredcarthistory[1] %></td>
                         <td><% =deliveredcarthistory[2] %></td>
+                        <td>Button</td>
                     </tr>
                     <% } %>
                 </tbody>
