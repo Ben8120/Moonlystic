@@ -41,7 +41,7 @@ namespace Moonlystic
                 string sqlquery; 
                 if (Request.QueryString["cid"] != "" && Request.QueryString["cid"] != null)
                 {
-                    sqlquery = "SELECT * FROM Product WHERE productCategory="+ Convert.ToInt16(Request.QueryString["cid"]); ;
+                    sqlquery = "SELECT * FROM Product WHERE productCategory="+ Convert.ToInt16(Request.QueryString["cid"]);
                 } else
                 {
                     sqlquery = "SELECT * FROM Product ";
