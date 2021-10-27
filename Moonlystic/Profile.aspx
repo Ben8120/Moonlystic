@@ -92,15 +92,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% foreach (List<string> deliveredcarthistory in deliveredCartHistory) { %>
-                    <tr>
-                        <td><img src="Assets/gray.jpg" style="width:50px;height:50px;"/></td>
-                        <td><% =deliveredcarthistory[0] %></td>
-                        <td><% =deliveredcarthistory[1] %></td>
-                        <td><% =deliveredcarthistory[2] %></td>
-                        <td>Button</td>
-                    </tr>
-                    <% } %>
+                    <% =deliveredCart() %>
                 </tbody>
             </table>
         </div>

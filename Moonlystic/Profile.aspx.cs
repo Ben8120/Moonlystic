@@ -162,7 +162,7 @@ namespace Moonlystic
             SqlConnection conn = new SqlConnection(connStr);
             conn.Open();
 
-            string sql = "SELECT Product.productName, Cart.orderAmount, Cart.cartPrice FROM Cart INNER JOIN Product ON Cart.productId=Product.productId WHERE userId=@userId AND hasPaid=1 AND hasDelivered=1";
+            string sql = "SELECT Product.productName, Cart.orderAmount, Cart.cartPrice, Cart.cartId FROM Cart INNER JOIN Product ON Cart.productId=Product.productId WHERE userId=@userId AND hasPaid=1 AND hasDelivered=1";
             SqlCommand comm = new SqlCommand(sql, conn);
             comm.Parameters.AddWithValue("@userId", Session["id"]);
 
@@ -170,7 +170,7 @@ namespace Moonlystic
 
             while (reader.Read() == true)
             {
-                cartHistory.Add(new List<string> { reader["productName"].ToString(), reader["orderAmount"].ToString(), reader["cartPrice"].ToString() });
+                cartHistory.Add(new List<string> { reader["productName"].ToString(), reader["orderAmount"].ToString(), reader["cartPrice"].ToString(), reader["cartId"].ToString() });
             }
 
 
@@ -201,6 +201,19 @@ namespace Moonlystic
             Components component = new Components();
             mooncard = component.moonCard(image, name, userName, balance, token);
             return mooncard;
+        }
+
+        protected string deliveredCart()
+        {
+            string delivered = "";
+            Components components = new Components();
+            
+            foreach(List<string> deliveredcarthistory in deliveredCartHistory)
+            {
+                delivered += components.deliveredCart(deliveredcarthistory[0], deliveredcarthistory[1], deliveredcarthistory[2], deliveredcarthistory[3]);
+            }
+
+            return delivered;
         }
     }
 }

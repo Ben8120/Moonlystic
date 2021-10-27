@@ -21,7 +21,7 @@
                 </tr>
                 <% } %>
                 <tr>
-                    <td colspan="2">Subtotal: </td>
+                    <td colspan="3">Subtotal: </td>
                     <td>RM<% =totalPrice %></td>
                 </tr>
             </tbody>

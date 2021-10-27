@@ -98,5 +98,21 @@ namespace Moonlystic
 
             return mooncard;
         }
+
+        public string deliveredCart(string name, string amount, string price, string id)
+        {
+            string deliveredCart;
+
+            deliveredCart = "" +
+                    "<tr>" +
+                        "<td><img src=\"Assets/gray.jpg\" style=\"width:50px;height:50px;\" /></td>" +
+                        "<td>" + name + "</td>" +
+                        "<td>" + amount + "</td>" +
+                        "<td>" + price + "</td>" +
+                        "<td><div class=\"btn btn-primary\" onclick=\"location.href=\'WriteReview.aspx?cartId=" + id + "\'\">Review!</div></td>" +
+                    "</tr>";
+            
+            return deliveredCart;
+        }
     }
 }
