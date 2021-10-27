@@ -17,6 +17,8 @@ namespace Moonlystic
         protected string productDiscount;
         protected static int pId;
         protected decimal cartPrice;
+
+        protected List<List<string>> reviewDetails;
         protected void Page_Load(object sender, EventArgs e)
         {
             pId = 0;
@@ -28,6 +30,7 @@ namespace Moonlystic
             else
             {
                 getProductDetail();
+                reviewDetails = getData();
             }
         }
 
@@ -116,6 +119,27 @@ namespace Moonlystic
                 Response.Write("Need to Log In First!");
                 Response.Redirect("SignIn.aspx");
             }
+        }
+
+        protected List<List<string>> getData()
+        {
+            List<List<string>> pdData = new List<List<string>>();
+
+            string connStr = ConfigurationManager.ConnectionStrings["AvenueConnectionString"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connStr);
+            conn.Open();
+
+            string sqlQuery = "SELECT Users.userName, Cart.orderReview FROM Cart INNER JOIN Users ON Cart.userId = Users.userId WHERE Cart.productId = @pid AND orderReview != ''";
+            SqlCommand comm = new SqlCommand(sqlQuery, conn);
+            comm.Parameters.AddWithValue("@pid", pId);
+
+            SqlDataReader reader = comm.ExecuteReader();
+            while (reader.Read() == true)
+            {
+                pdData.Add(new List<string> { reader["userName"].ToString(), reader["orderReview"].ToString() });
+            }
+
+            return pdData;
         }
     }
 }
