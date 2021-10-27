@@ -176,6 +176,7 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="banana.glb" />
     <Content Include="burger.glb" />
+    <Content Include="WriteReview.aspx" />
     <None Include="Properties\PublishProfiles\Moonlystic - Web Deploy.pubxml" />
     <Content Include="Payment.aspx" />
     <Content Include="ProductDetail.aspx" />
@@ -426,6 +427,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WriteReview.aspx.cs">
+      <DependentUpon>WriteReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WriteReview.aspx.designer.cs">
+      <DependentUpon>WriteReview.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
