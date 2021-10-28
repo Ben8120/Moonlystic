@@ -26,10 +26,11 @@
     <h1>Reviews</h1>
     <div class="card w-100">
         <% foreach (List<string> reviewdetails in reviewDetails) { %>
+        
         <p><% =reviewdetails[0] %></p>
         <p><% =reviewdetails[1] %></p>
+        <br />
         <% } %>
-        <p>Username</p>
-        <p>Review</p>
+
     </div>
 </asp:Content>

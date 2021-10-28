@@ -103,6 +103,9 @@ namespace Moonlystic
             command.ExecuteNonQuery();
 
             conn.Close();
+
+            newSession();
+            Response.Redirect("Profile.aspx");
         }
 
         protected void btnView_Click(object sender, EventArgs e)
@@ -180,7 +183,7 @@ namespace Moonlystic
             return cartHistory;
         }
 
-        protected string getImage()
+        protected string getImage() //dicebearAPI
         {
             string imageName="";
 
@@ -214,6 +217,57 @@ namespace Moonlystic
             }
 
             return delivered;
+        }
+
+        protected void btnReload_Click(object sender, EventArgs e)
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["AvenueConnectionString"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connStr);
+            conn.Open();
+
+            string sql = "UPDATE Users SET balance=@balance WHERE userId=@id";
+            SqlCommand command = new SqlCommand(sql, conn);
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@id", Session["id"]);
+            command.Parameters.AddWithValue("@balance", decimal.Parse(txtReload.Text) + decimal.Parse(Session["balance"].ToString()));
+
+            command.ExecuteNonQuery();
+
+            conn.Close();
+            newSession();
+            Response.Redirect("Profile.aspx");
+        }
+
+        protected void newSession()
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["AvenueConnectionString"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connStr);
+            conn.Open();
+
+            string sqlquery = "SELECT * FROM Users WHERE userId=@id";
+            SqlCommand comm = new SqlCommand(sqlquery, conn);
+            comm.Parameters.AddWithValue("@id", Session["id"]);
+
+            SqlDataReader reader = comm.ExecuteReader();
+
+            if (reader.Read() == true)
+            {
+                Session["id"] = reader["userId"];
+                Session["firstName"] = reader["firstName"];
+                Session["lastName"] = reader["lastName"];
+                Session["email"] = reader["email"];
+                Session["balance"] = reader["balance"];
+                Session["token"] = reader["gameToken"];
+                Session["userName"] = reader["userName"];
+                //Add as go
+            }
+            else
+            {
+                Response.Write("ERR");
+            }
+
+            reader.Close();
+            conn.Close();
         }
     }
 }

@@ -1,6 +1,33 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="Moonlystic.Profile" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="modal fade" id="reloadModal">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3>Reload your card!</h3>
+                            </div>
+                            <div class="modal-body">
+                                <div class="input-group mb-3">
+                                    <asp:TextBox ID="txtReload" runat="server" class="form-control" placeholder="00.00" aria-describedby="btnReload"></asp:TextBox>
+                                        <div class="input-group-append">
+                                            <asp:Button ID="btnReload" runat="server" Text="Reload!" class="btn btn-outline-secondary" OnClick="btnReload_Click"/>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <input class="btn btn-primary" data-dismiss="modal" value="Close" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container mt-3">
         <div class="row">
             <div class="col-md-4 col-sm">
@@ -8,7 +35,7 @@
                 <% =moonCardComponent %>
                 <!--Card ends here-->
                 <div class="container m-3">
-                    <asp:Button ID="btnReload" runat="server" Text="Reload" class="btn-block btn-info" style="border-radius:8px;"/>
+                    <a href="*" data-toggle="modal" data-target="#reloadModal" class="btn-block btn-info text-center" style="border-radius:8px;">Reload</a>
                 </div>
                 
                 <div class="container card">
