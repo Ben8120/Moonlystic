@@ -62,6 +62,8 @@ namespace Moonlystic
         {
             if (Session["id"] != null)
             {
+                string date = DateTime.Now.ToString("ddHHmmss");
+
                 string connStr = ConfigurationManager.ConnectionStrings["AvenueConnectionString"].ConnectionString;
                 SqlConnection conn = new SqlConnection(connStr);
                 conn.Open();
@@ -75,9 +77,10 @@ namespace Moonlystic
                     }
                 }
 
-                string sqlquery = "UPDATE Cart SET hasPaid=1 WHERE userId=@userId";
+                string sqlquery = "UPDATE Cart SET hasPaid=1, paidDate=@paidDate WHERE userId=@userId";
                 SqlCommand comm = new SqlCommand(sqlquery, conn);
                 comm.Parameters.AddWithValue("@userId", Session["id"]);
+                comm.Parameters.AddWithValue("@paidDate", date);
 
                 comm.ExecuteNonQuery();
 
@@ -88,7 +91,8 @@ namespace Moonlystic
                     minusBalance();
                 }
 
-                Response.Redirect("Profile.aspx");
+                string invoiceLink = "Invoice.aspx?id=" + date;
+                Response.Redirect(invoiceLink);
             } else
             {
                 Response.Redirect("SignIn.aspx");
