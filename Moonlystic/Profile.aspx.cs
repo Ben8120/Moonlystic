@@ -23,7 +23,7 @@ namespace Moonlystic
         {
             if (!IsPostBack)
             {
-                
+                calendar.Visible = false;
             }
             if (Session["id"] == null)
             {
@@ -268,6 +268,26 @@ namespace Moonlystic
 
             reader.Close();
             conn.Close();
+        }
+
+        protected void btnCal_Click(object sender, EventArgs e)
+        {
+            if (calendar.Visible)
+            {
+                calendar.Visible = false;
+            }
+            else
+            {
+                calendar.Visible = true;
+            }
+            calendar.Attributes.Add("style", "position: absolute");
+            calendar.Attributes.Add("style", "z-index: 1000");
+        }
+
+        protected void calendar_SelectionChanged(object sender, EventArgs e)
+        {
+            txtDate.Text = calendar.SelectedDate.ToString("dd/MM/yyyy");
+            calendar.Visible = false;
         }
     }
 }

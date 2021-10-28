@@ -62,7 +62,7 @@
                     </div>
                     <div class="form-group">
                         <label for="inputAddress2">Date Of Birth</label>
-                        <asp:TextBox runat="server" class="form-control" id="txtDate" placeholder="Date Of Birth" ReadOnly="True"></asp:TextBox>                        
+                        <asp:TextBox runat="server" class="form-control" id="txtDate" placeholder="Date Of Birth" ReadOnly="True"></asp:TextBox>    <asp:Button ID="btnCal" runat="server" Text="Calendar" OnClick="btnCal_Click" CausesValidation="false" /> <asp:Calendar ID="calendar" runat="server" BackColor="#CCCCCC" OnSelectionChanged="calendar_SelectionChanged"></asp:Calendar>                    
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
