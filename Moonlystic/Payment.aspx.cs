@@ -20,7 +20,14 @@ namespace Moonlystic
             {
                 totalPrice = 0;
                 cartData = getCartData();
-                moonCardComponent = moonCard();
+
+                if ((cartData != null) && (!cartData.Any()))
+                {
+                    Response.Redirect("Default.aspx");
+                } else
+                {
+                    moonCardComponent = moonCard();
+                }
             } else
             {
                 Response.Redirect("SignIn.aspx");

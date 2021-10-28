@@ -95,13 +95,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% foreach (List<string> carthistory in cartHistory) { %>
-                    <tr>
-                        <td><img src="Assets/gray.jpg" style="width:50px;height:50px;"/></td>
-                        <td><% =carthistory[0] %></td>
-                        <td><% =carthistory[1] %></td>
-                        <td><% =carthistory[2] %></td>
-                    </tr>
+                    <% if ((cartHistory != null) && (!cartHistory.Any())) { %>
+                        <tr>
+                            <td colspan="4"><p>Sorry, you do not have any items waiting to be delivered.</p></td>
+                        </tr>
+                    <% } %>
+                    <% else { %>
+                        <% foreach (List<string> carthistory in cartHistory) { %>
+                            <tr>
+                                <td><img src="Assets/gray.jpg" style="width:50px;height:50px;"/></td>
+                                <td><% =carthistory[0] %></td>
+                                <td><% =carthistory[1] %></td>
+                                <td><% =carthistory[2] %></td>
+                            </tr>
+                        <% } %>
                     <% } %>
                 </tbody>
             </table>
@@ -119,7 +126,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% =deliveredCart() %>
+                    <% if ((cartHistory != null) && (!cartHistory.Any()))
+                        { %>
+                        <tr>
+                            <td colspan="4"><p>You have not bought any products yet :)</p></td>
+                        </tr>
+                    <% } else { %>
+                        <% =deliveredCart() %>
+                    <% } %>
                 </tbody>
             </table>
         </div>

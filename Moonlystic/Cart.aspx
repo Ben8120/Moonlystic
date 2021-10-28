@@ -13,18 +13,24 @@
             </tr>
         </thead>
         <tbody>
-            <% foreach (List<string> cartinfo in cartInfo) { %>
+            <% if ((cartInfo != null) && (!cartInfo.Any())) { %>
             <tr>
-                <td><img src="Assets/gray.jpg" style="width:50px;height:50px;"/></td>
-                <td><p><% =cartinfo[0] %></p></td>
-                <td><p><% =cartinfo[1] %></p></td>
-                <td><p>RM<% =cartinfo[2] %></p></td>
+                <td colspan="4"><p>You do not have any items in your cart at this moment :)</p></td>
             </tr>
+            <% } else { %>
+                <% foreach (List<string> cartinfo in cartInfo) { %>
+                    <tr>
+                        <td><img src="Assets/gray.jpg" style="width:50px;height:50px;"/></td>
+                        <td><p><% =cartinfo[0] %></p></td>
+                        <td><p><% =cartinfo[1] %></p></td>
+                        <td><p>RM<% =cartinfo[2] %></p></td>
+                    </tr>
+                <% } %>
+                <tr>
+                    <td colspan="3">Total:</td>
+                    <td>RM<% =totalPrice %></td>
+                </tr>
             <% } %>
-            <tr>
-                <td colspan="3">Total:</td>
-                <td>RM<% =totalPrice %></td>
-            </tr>
         </tbody>
     </table>
     </div>
