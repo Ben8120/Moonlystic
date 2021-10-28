@@ -59,6 +59,15 @@ namespace Moonlystic
                 SqlConnection conn = new SqlConnection(connStr);
                 conn.Open();
 
+                if (panelMY.Visible == true)
+                {
+                    if (decimal.Parse(Session["balance"].ToString()) < totalPrice)
+                    {
+                        Response.Write("You don't have enough balance!");
+                        Response.Redirect("Payment.aspx");
+                    }
+                }
+
                 string sqlquery = "UPDATE Cart SET hasPaid=1 WHERE userId=@userId";
                 SqlCommand comm = new SqlCommand(sqlquery, conn);
                 comm.Parameters.AddWithValue("@userId", Session["id"]);
@@ -66,6 +75,12 @@ namespace Moonlystic
                 comm.ExecuteNonQuery();
 
                 conn.Close();
+
+                if (panelMY.Visible == true)
+                {
+                    minusBalance();
+                }
+
                 Response.Redirect("Profile.aspx");
             } else
             {
@@ -112,6 +127,24 @@ namespace Moonlystic
             Components component = new Components();
             mooncard = component.moonCard(image, name, userName, balance, token);
             return mooncard;
+        }
+
+        protected void minusBalance()
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["AvenueConnectionString"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connStr);
+            conn.Open();
+
+            string sqlquery = "UPDATE Users SET balance=@newbalance WHERE userId=@userId";
+            SqlCommand comm = new SqlCommand(sqlquery, conn);
+            comm.Parameters.AddWithValue("@userId", Session["id"]);
+            comm.Parameters.AddWithValue("@newbalance", decimal.Parse(Session["balance"].ToString()) - totalPrice);
+
+            comm.ExecuteNonQuery();
+
+            conn.Close();
+
+            Session["balance"] = decimal.Parse(Session["balance"].ToString()) - totalPrice;
         }
     }
 }
