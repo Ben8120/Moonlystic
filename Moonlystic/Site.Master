@@ -72,9 +72,11 @@
                                 <span class="badge badge-warning m-2"><% =cartAmount %></span>
                                 <% } %>
                             </a>
+                            <% if (int.Parse(Session["userType"].ToString()) == 1) { %>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" runat="server" href="~/Admin">Admin Page (Beta)</a>
                             <div class="dropdown-divider"></div>
+                            <% } %>
                             <asp:Button ID="btnSignout" runat="server" Text="Sign Out" class="dropdown-item btn btn-outline-secondary" OnClick="btnSignout_Click" />
                         </div>
                     </li>

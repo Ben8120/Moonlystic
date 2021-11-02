@@ -13,11 +13,17 @@ namespace Moonlystic
         string btnActive = "btn btn-primary active";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["userType"] != null && int.Parse(Session["userType"].ToString()) == 1)
             {
-                hideAllPanels();
-                btnCategory.Attributes["class"] = btnActive;
-                PanelCategory.Visible = true;
+                if (!IsPostBack)
+                {
+                    hideAllPanels();
+                    btnCategory.Attributes["class"] = btnActive;
+                    PanelCategory.Visible = true;
+                }
+            } else
+            {
+                Response.Redirect("Default.aspx");
             }
         }
 
