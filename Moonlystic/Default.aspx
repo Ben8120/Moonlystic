@@ -43,6 +43,6 @@
         </div>
     </div>
 
-    <img src="Assets/gray.jpg" class="w-25 m-2" style="height:200px;"/>
+    <img src="https://tp054554.blob.core.windows.net/moonlystic/test" class="w-25 m-2" style="height:200px;"/>
 
 </asp:Content>

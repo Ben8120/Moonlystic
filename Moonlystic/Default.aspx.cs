@@ -15,6 +15,8 @@ namespace Moonlystic
         protected List<List<string>> carouselData;
         protected void Page_Load(object sender, EventArgs e)
         {
+            var blob = new Blob();
+            blob.tryBlob();
             var component = new Components();
             carouselData = getCarousel();
             foreach (List<string> carouseldata in carouselData)
