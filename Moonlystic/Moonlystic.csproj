@@ -177,6 +177,7 @@
     <Content Include="banana.glb" />
     <Content Include="burger.glb" />
     <Content Include="Invoice.aspx" />
+    <Content Include="Wheely.aspx" />
     <Content Include="WriteReview.aspx" />
     <None Include="Properties\PublishProfiles\Moonlystic - Web Deploy.pubxml" />
     <Content Include="Payment.aspx" />
@@ -435,6 +436,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Wheely.aspx.cs">
+      <DependentUpon>Wheely.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Wheely.aspx.designer.cs">
+      <DependentUpon>Wheely.aspx</DependentUpon>
     </Compile>
     <Compile Include="WriteReview.aspx.cs">
       <DependentUpon>WriteReview.aspx</DependentUpon>
