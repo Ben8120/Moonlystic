@@ -52,7 +52,7 @@ namespace Moonlystic
                 SqlDataReader reader = comm.ExecuteReader();
                 while (reader.Read())
                 {
-                    getProductInfos.Add(new List<string> { reader["productName"].ToString(), reader["productPrice"].ToString(), reader["productId"].ToString() });
+                    getProductInfos.Add(new List<string> { reader["productName"].ToString(), reader["productPrice"].ToString(), reader["productId"].ToString(), reader["productImg"].ToString() });
 
                 }
 
@@ -79,7 +79,7 @@ namespace Moonlystic
 
             foreach (List<string> product in productInfo)
             {
-                data += components.productsCard(product[0], product[1], product[2]);
+                data += components.productsCard(product[0], product[1], product[2], product[3]);
             }
             return data;
         }

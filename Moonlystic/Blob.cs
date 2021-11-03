@@ -12,18 +12,25 @@ namespace Moonlystic
     {
         static string connectionString = "DefaultEndpointsProtocol=https;AccountName=tp054554;AccountKey=aYat1Qguh5grIaGb8EU1d3dQ5YqigqiA7/FZvaIMQdKGIYXOq/wT7vPtYaWGQDK5NwGFoOJv06zpCB39X5kjyA==;EndpointSuffix=core.windows.net";
         static string containerName = "moonlystic";
-        static string folderPath = @"C:\Users\Ben\Desktop\test\mwmsequence.png";
+        //static string folderPath = @"C:\Users\Ben\Desktop\test\bank-card.png";
 
-        public void tryBlob()
+        public void tryBlob(string BLOBName, string filePath)
         {
             BlobClient blobClient = new BlobClient(
                 connectionString: connectionString,
                 blobContainerName: containerName,
-                blobName: "test");
+                blobName: BLOBName);
 
             // upload the file
             //make an if else or try catch block to prevent error if already uploaded
-            //blobClient.Upload(folderPath);
+            blobClient.Upload(filePath);
+            try
+            {
+                //blobClient.Upload(filePath);
+            } catch
+            {
+                
+            }
         }
     }
 }

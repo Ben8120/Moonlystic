@@ -36,13 +36,13 @@ namespace Moonlystic
             return carModal;
         }
 
-        public string productsCard(string name, string price, string id)
+        public string productsCard(string name, string price, string id, string img)
         {
             string productsCard;
 
             productsCard = "" +
                 "<div class=\"card m-2 col-sm grow\" style=\"width: 16rem; display: inline-block;\">" +
-                        "<img class=\"card-img-top\" src=\"Assets/gray.jpg\" alt=\"Image Name\" />" +
+                        "<img class=\"card-img-top\" src=\"https://tp054554.blob.core.windows.net/moonlystic/" + img + "\" alt=\"Image Name\" />" +
                         "<div class=\"card-body\" onclick=\"location.href = \'ProductDetail.aspx?id=" + id +"\'; \" style=\"cursor: pointer; \">" +
                             "<h5 class=\"card-title\">" + name + "</h5>" +
                             "<p class=\"card-text\">RM" + price + "</p>" +

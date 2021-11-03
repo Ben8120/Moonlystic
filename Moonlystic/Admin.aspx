@@ -72,13 +72,14 @@
                         <asp:SqlDataSource ID="sqlProd" runat="server" 
                             ConnectionString="<%$ ConnectionStrings:AvenueConnectionString %>" 
                             SelectCommand="SELECT * FROM [Product]"
-                            InsertCommand="INSERT INTO [Product] ([productName], [productDesc], [productPrice], [productAmount], [productDiscount], [productCategory]) 
-                            VALUES (@productName, @productDesc, @productPrice, @productAmount, @productDiscount, @productCategory)"
+                            InsertCommand="INSERT INTO [Product] ([productName], [productDesc], [productImg],[productPrice], [productAmount], [productDiscount], [productCategory]) 
+                            VALUES (@productName, @productDesc, @productImg, @productPrice, @productAmount, @productDiscount, @productCategory)"
                             UpdateCommand="UPDATE [Product] SET [productName]=@productName, [productDesc]=@productDesc, [productPrice]=@productPrice, [productAmount]=@productAmount, [productDiscount]=@productDiscount, [productCategory]=@productCategory WHERE [productId]=@productId"
                             DeleteCommand="DELETE FROM [Product] WHERE [productId] = @productId">
                             <InsertParameters>
                                 <asp:ControlParameter ControlID="txtProdName" Name="productName" Type="String" />
                                 <asp:ControlParameter ControlID="txtProdDesc" Name="productDesc" Type="String" />
+                                <asp:ControlParameter ControlID="lblProdFileName" Name="productImg" Type="String" />
                                 <asp:ControlParameter ControlID="txtProdPrice" Name="productPrice" Type="decimal" />
                                 <asp:ControlParameter ControlID="txtProdAmount" Name="productAmount" Type="Int32" />
                                 <asp:ControlParameter ControlID="txtProdDiscount" Name="productDiscount" Type="decimal" />
@@ -88,7 +89,9 @@
 
                         <div class="m-2">
                             <asp:TextBox ID="txtprodName" runat="server" placeholder="Product Name" class="m-2"></asp:TextBox>
-                            <asp:FileUpload ID="fileProdImg" runat="server" placeholder="Product Image" class="m-2"/> <br />
+                            <asp:FileUpload ID="fileProdImg" runat="server" placeholder="Product Image" class="m-2"/> 
+                            <asp:Label ID="lblProdFileName" runat="server" Text="Label"></asp:Label>
+                            <br />
                             <asp:TextBox ID="txtprodDesc" runat="server" placeholder="Product Description" class="m-2" TextMode="MultiLine"></asp:TextBox> <br />
                             <asp:TextBox ID="txtProdPrice" runat="server" placeholder="Product Price" class="m-2"></asp:TextBox>
                             <asp:TextBox ID="txtProdAmount" runat="server" placeholder="Product Amount" class="m-2"></asp:TextBox>

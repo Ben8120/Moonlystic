@@ -168,6 +168,15 @@ namespace Moonlystic
         protected global::System.Web.UI.WebControls.FileUpload fileProdImg;
 
         /// <summary>
+        /// lblProdFileName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblProdFileName;
+
+        /// <summary>
         /// txtprodDesc control.
         /// </summary>
         /// <remarks>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -116,7 +117,17 @@ namespace Moonlystic
 
         protected void btnProdAdd_Click(object sender, EventArgs e)
         {
+            string folderPath = Server.MapPath("~/Uploads/");
+            string imagePath = folderPath + Path.GetFileName(fileProdImg.FileName);
+            fileProdImg.SaveAs(imagePath);
+
+            lblProdFileName.Text = fileProdImg.FileName;
+
+            Blob blob = new Blob();
+            blob.tryBlob(lblProdFileName.Text, imagePath);
+
             sqlProd.Insert();
+            //delete after saving to project file and uploading to blob storage
             Response.Redirect("Admin.aspx");
         }
 
