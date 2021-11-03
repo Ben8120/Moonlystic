@@ -117,6 +117,8 @@ namespace Moonlystic
 
         protected void btnProdAdd_Click(object sender, EventArgs e)
         {
+            blobFunction(fileProdImg.FileName, fileProdImg, lblProdFileName);
+            /*
             lblProdFileName.Text = fileProdImg.FileName;
 
             string folderPath = Server.MapPath("~/Uploads/");
@@ -124,14 +126,15 @@ namespace Moonlystic
             fileProdImg.SaveAs(imagePath);
 
             Blob blob = new Blob();
-            blob.tryBlob(lblProdFileName.Text, imagePath);
+            blob.tryBlob(fileProdImg.FileName, imagePath);
 
             string deletePath = Server.MapPath("~/Uploads/" + fileProdImg.FileName);
             FileInfo deleteFile = new FileInfo(deletePath);
             deleteFile.Delete();
+            */
 
             sqlProd.Insert();
-            //delete after saving to project file and uploading to blob storage
+
             Response.Redirect("Admin.aspx");
         }
 
@@ -143,6 +146,22 @@ namespace Moonlystic
         protected void btnAddCar_Click(object sender, EventArgs e)
         {
             sqlCar.Insert();
+        }
+
+        protected void blobFunction(string name, FileUpload fu, Label lbl)
+        {
+            lbl.Text = name;
+
+            string folderPath = Server.MapPath("~/Uploads/");
+            string imagePath = folderPath + Path.GetFileName(name);
+            fu.SaveAs(imagePath);
+
+            Blob blob = new Blob();
+            blob.tryBlob(name, imagePath);
+
+            string deletePath = Server.MapPath("~/Uploads/" + name);
+            FileInfo deleteFile = new FileInfo(deletePath);
+            deleteFile.Delete();
         }
     }
 }
