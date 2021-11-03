@@ -117,14 +117,18 @@ namespace Moonlystic
 
         protected void btnProdAdd_Click(object sender, EventArgs e)
         {
+            lblProdFileName.Text = fileProdImg.FileName;
+
             string folderPath = Server.MapPath("~/Uploads/");
             string imagePath = folderPath + Path.GetFileName(fileProdImg.FileName);
             fileProdImg.SaveAs(imagePath);
 
-            lblProdFileName.Text = fileProdImg.FileName;
-
             Blob blob = new Blob();
             blob.tryBlob(lblProdFileName.Text, imagePath);
+
+            string deletePath = Server.MapPath("~/Uploads/" + fileProdImg.FileName);
+            FileInfo deleteFile = new FileInfo(deletePath);
+            deleteFile.Delete();
 
             sqlProd.Insert();
             //delete after saving to project file and uploading to blob storage
