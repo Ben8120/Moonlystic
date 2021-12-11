@@ -2,8 +2,8 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <% =carModal %>
-    <a href="*" data-toggle="modal" data-target="#myModal">Open Modal</a>    
+    <!-- <% =carModal %>
+    <a href="*" data-toggle="modal" data-target="#myModal">Open Modal</a>    -->
     <div class = "d-flex justify-content-center">
         <div id = "carouselwithIndicators" class = "carousel slide w-75" data-ride = "carousel">
             <ol class = "carousel-indicators">
@@ -14,20 +14,20 @@
             
             <div class =" carousel-inner">
                 <div class = "carousel-item active">
-                    <img class = "d-block w-100 h-100" 
-                        src = "https://www.tutorialspoint.com/bootstrap/images/slide1.png" 
-                        alt = "First slide">
+                    <img class ="d-block w-100 h-100"
+                    src="Assets/banner1.jpg"
+                    alt="First slide" />
                 </div>
                
                 <div class = "carousel-item">
-                    <img class = "d-block w-100 h-100"  
-                        src = "https://www.tutorialspoint.com/bootstrap/images/slide2.png" 
-                        alt = "Second slide">
+                    <img class ="d-block w-100 h-100"
+                    src="Assets/banner2.jpg"
+                    alt="Secondd slide" />
                 </div>
                 <div class = "carousel-item">
-                    <img class = "d-block w-100 h-100" 
-                        src = "https://www.tutorialspoint.com/bootstrap/images/slide3.png" 
-                        alt = "Third slide">
+                    <img class ="d-block w-100 h-100"
+                    src="Assets/banner3.jpg"
+                    alt="Third slide" />
                 </div>
             </div>
             
@@ -43,6 +43,8 @@
         </div>
     </div>
 
-    <img src="https://tp054554.blob.core.windows.net/moonlystic/bank-card.png" class="w-25 m-2" style="height:200px;"/>
+    <div class="card m-2 w-100">
+        <h2>Welcome to Moonlystic Online Store!</h2>
+    </div>
 
 </asp:Content>

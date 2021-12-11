@@ -5,7 +5,7 @@
         ConnectionString="<%$ ConnectionStrings:AvenueConnectionString %>" 
         SelectCommand="SELECT * FROM [Users]"
         InsertCommand="INSERT INTO [Users] ([firstName], [lastName], [userName], [dateOfBirth], [email], [password], [userType], [status], [balance], [gameToken], [checkInDays])
-        VALUES (@firstName, @lastName, @userName, @dateOfBirth, @email, @password, @userType, @status, @balance, @gameToken, @checkInDays)">
+        VALUES (@firstName, @lastName, @userName, @dateOfBirth, @email, @password, @userType, @status, @balance, @gameToken, @checkInDays)" OnSelecting="SqlDataSource1_Selecting">
 
         <InsertParameters>
             <asp:ControlParameter ControlID="txtFirstName" Name="firstName" Type="String" />
@@ -22,6 +22,7 @@
         </InsertParameters>
     </asp:SqlDataSource>
     
+    <div class="vh-100">
     <h1>Sign Up</h1>
     <div>
         <table style="width: 100%;">
@@ -67,6 +68,7 @@
         <p>By creating an account, you agree to the <a href="#">Terms of service</a> and <a href="#">Privacy Policy</a></p>
         <asp:Button ID="btnSignUp" runat="server" Text="Sign Up" OnClick="btnSignUp_Click" />
         <p>Already have an account? <a href="~/SignIn" runat="server">Sign In</a></p>
+    </div>
     </div>
 
 </asp:Content>

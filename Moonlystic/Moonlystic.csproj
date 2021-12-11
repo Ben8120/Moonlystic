@@ -162,6 +162,9 @@
     <Content Include="About.aspx" />
     <Content Include="Admin.aspx" />
     <Content Include="Assets\bank-card.png" />
+    <Content Include="Assets\banner1.jpg" />
+    <Content Include="Assets\banner2.jpg" />
+    <Content Include="Assets\banner3.jpg" />
     <Content Include="Assets\gray.jpg" />
     <Content Include="Cart.aspx" />
     <Content Include="Category.aspx" />
