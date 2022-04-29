@@ -2,9 +2,13 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
+    <div class="card m-2 w-100">
+        <h2>Welcome to Moonlystic Online Store!</h2>
+    </div>
+
     <!-- <% =carModal %>
     <a href="*" data-toggle="modal" data-target="#myModal">Open Modal</a>    -->
-    <div class = "d-flex justify-content-center">
+    <div class = "d-flex justify-content-center m-2">
         <div id = "carouselwithIndicators" class = "carousel slide w-75" data-ride = "carousel">
             <ol class = "carousel-indicators">
                 <li data-target = "#carouselExampleIndicators" data-slide-to = "0" class = "active"></li>
@@ -41,10 +45,6 @@
                 <span class = "sr-only">Next</span>
             </a>
         </div>
-    </div>
-
-    <div class="card m-2 w-100">
-        <h2>Welcome to Moonlystic Online Store!</h2>
     </div>
 
 </asp:Content>

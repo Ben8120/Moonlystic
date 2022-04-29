@@ -3,7 +3,7 @@
     <h1><% =productName %></h1>
     <div class="row vh-100">
         <div class="col-md-3">
-            <img class="rounded-right" src="Assets/gray.jpg" alt="Image" style="height:200px;width:200px;"/>
+            <img class="rounded-right" src=<% =productImg %> alt="Image" style="height:200px;width:200px;"/>
         </div>
         <div class="col-md-9">
             <h1><% =productName %></h1>
@@ -23,14 +23,12 @@
             <asp:Button ID="btnCart" runat="server" Text="Add to Cart" class="btn btn-primary btn-lg" OnClick="btnCart_Click"/>
         </div>
     </div>
-    <h1>Reviews</h1>
-    <div class="card w-100">
-        <% foreach (List<string> reviewdetails in reviewDetails) { %>
-        
-        <p><% =reviewdetails[0] %></p>
+    <h1>Reviews</h1>    
+    <% foreach (List<string> reviewdetails in reviewDetails) { %>
+    <div class="card w-100">    
+        <h3><% =reviewdetails[0] %></h3>
         <p><% =reviewdetails[1] %></p>
         <br />
-        <% } %>
-
     </div>
+    <% } %>
 </asp:Content>

@@ -17,6 +17,7 @@ namespace Moonlystic
         protected string productDiscount;
         protected static int pId;
         protected decimal cartPrice;
+        protected string productImg;
 
         protected List<List<string>> reviewDetails;
         protected void Page_Load(object sender, EventArgs e)
@@ -51,6 +52,7 @@ namespace Moonlystic
                 productDesc = reader["productDesc"].ToString();
                 productPrice = reader["productPrice"].ToString();
                 productDiscount = (decimal.Parse(reader["productPrice"].ToString()) - decimal.Parse(reader["productDiscount"].ToString())).ToString();
+                productImg = "https://tp054554.blob.core.windows.net/moonlystic/" + reader["productImg"].ToString();
             }
 
             reader.Close();

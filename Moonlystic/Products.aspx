@@ -6,7 +6,7 @@
                 <% foreach (string category in categories) { %>
                 <asp:RadioButton ID="rb" runat="server" GroupName="categories" Text=""/><% =category %><br />
                 <% } %>
-                <asp:Button ID="btnFilter" runat="server" Text="Filter" /> <!--TODO: redirect to same page, but with header queries -->s
+                <asp:Button ID="btnFilter" runat="server" Text="Filter" /> <!--TODO: redirect to same page, but with header queries -->
             </div>
         </div>
         <div class="col-md-10">

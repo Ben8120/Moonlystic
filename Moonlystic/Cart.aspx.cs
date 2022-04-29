@@ -34,7 +34,7 @@ namespace Moonlystic
             SqlConnection conn = new SqlConnection(connStr);
             conn.Open();
 
-            string sqlquery = "SELECT Product.productName, Cart.orderAmount, Cart.cartPrice FROM Cart INNER JOIN Product ON Cart.productId = Product.productId WHERE userId = 1 AND Cart.hasPaid = 0";
+            string sqlquery = "SELECT Product.productName, Cart.orderAmount, Cart.cartPrice, Product.productImg FROM Cart INNER JOIN Product ON Cart.productId = Product.productId WHERE userId = 1 AND Cart.hasPaid = 0";
             SqlCommand comm = new SqlCommand(sqlquery, conn);
             comm.Parameters.AddWithValue("@userId", Session["id"]);
 
@@ -43,7 +43,7 @@ namespace Moonlystic
             while (reader.Read() == true)
             {
                 //cartIds.Add(new List<int> { int.Parse(reader["cartId"].ToString()), int.Parse(reader["productId"].ToString()) });
-                cartInfo.Add(new List<string> { reader["productName"].ToString(), reader["orderAmount"].ToString(), reader["cartPrice"].ToString() });
+                cartInfo.Add(new List<string> { reader["productName"].ToString(), reader["orderAmount"].ToString(), reader["cartPrice"].ToString(), "https://tp054554.blob.core.windows.net/moonlystic/" + reader["productImg"].ToString() });
                 totalPrice = totalPrice + decimal.Parse(reader["cartPrice"].ToString());
             }
 

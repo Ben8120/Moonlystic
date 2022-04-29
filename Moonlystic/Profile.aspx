@@ -103,7 +103,7 @@
                     <% else { %>
                         <% foreach (List<string> carthistory in cartHistory) { %>
                             <tr>
-                                <td><img src="Assets/gray.jpg" style="width:50px;height:50px;"/></td>
+                                <td><img src=<% =carthistory[3] %> style="width:50px;height:50px;"/></td>
                                 <td><% =carthistory[0] %></td>
                                 <td><% =carthistory[1] %></td>
                                 <td><% =carthistory[2] %></td>

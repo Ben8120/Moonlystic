@@ -14,7 +14,7 @@
             <tbody>
                 <% foreach (List<string> cartdata in cartData) { %>
                 <tr>
-                    <td><img src="Assets/gray.jpg" style="width:50px;height:50px;"/></td>
+                    <td><img src=<% =cartdata[3] %> style="width:50px;height:50px;"/></td>
                     <td><p><% =cartdata[0] %></p></td>
                     <td><% =cartdata[1] %></td>
                     <td>RM<% =cartdata[2] %></td>

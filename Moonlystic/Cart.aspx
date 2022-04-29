@@ -20,7 +20,7 @@
             <% } else { %>
                 <% foreach (List<string> cartinfo in cartInfo) { %>
                     <tr>
-                        <td><img src="Assets/gray.jpg" style="width:50px;height:50px;"/></td>
+                        <td><img src=<% =cartinfo[3] %> style="width:50px;height:50px;"/></td>
                         <td><p><% =cartinfo[0] %></p></td>
                         <td><p><% =cartinfo[1] %></p></td>
                         <td><p>RM<% =cartinfo[2] %></p></td>

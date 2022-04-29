@@ -47,12 +47,11 @@
                     <li class="nav-item"><a class="nav-link" runat="server" href="~/Category">Categories</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" runat="server" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Collections
+                            Products
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" runat="server" href="~/Products">All Products</a>
-                            <a class="dropdown-item" runat="server" href="#">Trending Moons</a>
-                            <a class="dropdown-item" runat="server" href="#">blablabla</a>
+                            <a class="dropdown-item" runat="server" href="#">Coming Soon...</a>
                         </div>
                     </li>
                 </ul>
