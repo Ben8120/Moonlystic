@@ -10,7 +10,7 @@ namespace Moonlystic
 {
     public class Blob
     {
-        static string connectionString = "DefaultEndpointsProtocol=https;AccountName=tp054554;AccountKey=aYat1Qguh5grIaGb8EU1d3dQ5YqigqiA7/FZvaIMQdKGIYXOq/wT7vPtYaWGQDK5NwGFoOJv06zpCB39X5kjyA==;EndpointSuffix=core.windows.net";
+        static string connectionString = "CONNECTIONSTRING";
         static string containerName = "moonlystic";
         //static string folderPath = @"C:\Users\Ben\Desktop\test\bank-card.png";
 
